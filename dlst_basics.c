@@ -1,38 +1,49 @@
 #include"push_swap.h"
 
-void	dlst_init(t_dlst **head)
+void	dlst_init(t_dlst *stack)
 {
-	*head = NULL;
+	stack->head = NULL;
+	stack->tail = NULL;
 }
 
-void	dlst_addnew(const char *s, t_dlst **head)
+void	dlst_addnew(const char *s, t_dlst *stack)
 {
-	t_dlst	*new;
+	t_dnode	*new;
 
-	new = malloc(sizeof(t_dlst));
+	new = malloc(sizeof(t_dnode));
 	new->previous = NULL;
 	new->number = ft_atoi(s);
 	new->next = NULL;
-	dlst_addlast(new, head);
+	dlst_addlast(new, stack);
 }
 
-void	dlst_addlast(t_dlst *new, t_dlst **head)
+void	dlst_addlast(t_dnode *new, t_dlst *stack)
 {
-	t_dlst *i;
+	t_dnode *i;
 
-	if (*head == NULL)
+	stack->tail = new;
+	if (stack->head == NULL)
 	{
-		*head = new;
+		stack->head = new;
 		return ;
 	}
-	i = *head;
+	i = stack->head;
 	while (i->next != NULL)
 		i = i->next;
 	i->next = new;
 	new->previous = i;
 }
 
-void	dlst_clear(t_dlst **head)
+// void	dlst_clear(t_dnode **head)
+// {
+// 	if (*head == NULL)
+// 		return ;
+// 	dlst_clear(&((*head)->next));
+// 	free(*head);
+// 	*head = NULL;
+// }
+
+void	dlst_clear(t_dnode **head)
 {
 	if (*head == NULL)
 		return ;

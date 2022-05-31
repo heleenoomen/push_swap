@@ -1,12 +1,12 @@
 #include"push_swap.h"
 
-void	print_dlst(t_dlst **dlst, char *name)
+void	print_dlst(t_dlst *stack, char *name)
 {
-	t_dlst	*i;
+	t_dnode	*i;
 
 	ft_printf("-----------------------------\n");
 	ft_printf("%s:\n", name);
-	i = *dlst;
+	i = stack->head;
 	if (i == NULL)
 	{
 		ft_printf("\tlist is NULL\n");
@@ -20,21 +20,24 @@ void	print_dlst(t_dlst **dlst, char *name)
 	ft_printf("-----------------------------\n");
 }
 
-void	print_sorted(t_dlst **dlst)
+void	print_sorted(t_dlst *stack_a, int *ops)
 {
-	t_dlst	*i; 
+	t_dnode	*i; 
 	
-	i = *dlst;
+	ft_printf("------------SORTED-------------\n");
+	i = stack_a->head;
 	if (i == NULL)
 	{
 		ft_printf("Error print_sorted: head is NULL\n");
 		return ;
 	}
-	ft_printf("we are sorted:");
+	ft_printf("We are sorted:");
 	while (i->next != NULL)
 	{
 		ft_printf(" %i,", i->number);
 		i = i->next;
 	}
 	ft_printf(" %i\n", i->number);
+	ft_printf("operations: %i\n", *ops);
+	ft_printf("-------------------------------\n");
 }

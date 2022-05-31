@@ -20,7 +20,7 @@ bool	ft_strisnumeric(const char *s)
 	return (true);
 }
 
-void	check_usage(int argc, char **argv, t_dlst **head)
+void	check_usage(int argc, char **argv, t_dlst *stack_a)
 {
 	int	i;
 
@@ -32,10 +32,10 @@ void	check_usage(int argc, char **argv, t_dlst **head)
 		if (!ft_strisnumeric(argv[i]))
 		{
 			ft_printf("Error\n");
-			dlst_clear(head);
+			dlst_clear(&(stack_a->head));
 			exit(0);
 		}
-		dlst_addnew(argv[i], head);
+		dlst_addnew(argv[i], stack_a);
 		i++;
 	}
 }
@@ -47,15 +47,16 @@ void	check(void)
 
 int	main(int argc, char **argv)
 {
-	t_dlst	*head_a;
-	t_dlst	*head_b;
+	t_dlst	stack_a;
+	t_dlst	stack_b;
 	int		ops;
 
 	atexit(check);
-	dlst_init(&head_a);
-	dlst_init(&head_b);
-	ft_sort(argc, &head_a, &head_b, &s);
-	check_usage(argc, argv, &head_a);
-	dlst_clear(&head_a);
-	dlst_clear(&head_b);
+	ops = 0;
+	dlst_init(&stack_a);
+	dlst_init(&stack_b);
+	check_usage(argc, argv, &stack_a);
+	ft_sort(argc, &stack_a, &stack_b, &ops);
+	dlst_clear(&(stack_a.head));
+	dlst_clear(&(stack_b.head));
 }
