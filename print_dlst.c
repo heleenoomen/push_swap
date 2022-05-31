@@ -17,6 +17,30 @@ void	print_dlst(t_dlst *stack, char *name)
 		ft_printf("\t%i\n", i->number);
 		i = i->next;
 	}
+	ft_printf("stack->head->number = %i\n", stack->head->number);
+	ft_printf("stack->tail->number = %i\n", stack->tail->number);
+	ft_printf("-----------------------------\n");
+}
+
+void	print_dlst_rev(t_dlst *stack, char *name)
+{
+	t_dnode	*i;
+
+	ft_printf("-----------------------------\n");
+	ft_printf("%s:\n", name);
+	i = stack->tail;
+	if (i == NULL)
+	{
+		ft_printf("\tlist is NULL\n");
+		return ;
+	}
+	while (i != NULL)
+	{
+		ft_printf("\t%i\n", i->number);
+		i = i->previous;
+	}
+	ft_printf("stack->head->number = %i\n", stack->head->number);
+	ft_printf("stack->tail->number = %i\n", stack->tail->number);
 	ft_printf("-----------------------------\n");
 }
 

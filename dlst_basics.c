@@ -34,14 +34,13 @@ void	dlst_addlast(t_dnode *new, t_dlst *stack)
 	new->previous = i;
 }
 
-// void	dlst_clear(t_dnode **head)
-// {
-// 	if (*head == NULL)
-// 		return ;
-// 	dlst_clear(&((*head)->next));
-// 	free(*head);
-// 	*head = NULL;
-// }
+void	dlst_addfront(t_dnode *new, t_dlst *stack)
+{
+	new->next = stack->head;
+	stack->head = new;
+	stack->head->previous = NULL;
+	stack->head->next->previous = stack->head;
+}
 
 void	dlst_clear(t_dnode **head)
 {

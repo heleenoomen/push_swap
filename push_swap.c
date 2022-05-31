@@ -56,6 +56,7 @@ int	main(int argc, char **argv)
 	dlst_init(&stack_a);
 	dlst_init(&stack_b);
 	check_usage(argc, argv, &stack_a);
+	//print_dlst_rev(&stack_a, "stack_a, reverse");
 	ft_sort(argc, &stack_a, &stack_b, &ops);
 	dlst_clear(&(stack_a.head));
 	dlst_clear(&(stack_b.head));
