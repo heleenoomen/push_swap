@@ -1,0 +1,27 @@
+l is left end
+r is right end
+
+if l >= r ---> return ;
+
+set pivot to l, set a[pivot]
+set i to l
+set j to r
+
+while a[i] <= a[pivot] >>> move i forward;
+while a[j] > a[pivot]  >>> move j back;
+
+if i >= j
+	break!
+else
+	swap a[i] and a[j]
+
+swap a[pivot] and a[j]
+
+
+quicksort(a, l, j - 1)
+quicksort(a, j + 1, r)
+
+
+
+
+
