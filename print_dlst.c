@@ -71,3 +71,26 @@ void	print_sorted(t_dlst *stack_a, int *ops)
 	ft_printf("operations: %i\n", *ops);
 	ft_printf("-------------------------------\n");
 }
+
+void	print_liss(t_dlst *stack)
+{
+	t_dnode *i;
+	int		value;
+	
+	i = stack->liss_ptr;
+	value = 0;
+	ft_printf("------------LISS:--------------\n");
+	ft_printf("ofset is at: %i\n", stack->liss_ptr->number);
+	while (1)
+	{
+		if (i->number >= value)
+		{
+			ft_printf("%i\n", i->number);
+			value = i->number;
+		}
+		i = i->next;
+		if (i == stack->liss_ptr)
+			break ;
+	}
+	ft_printf("-------------------------------\n");
+}

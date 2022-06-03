@@ -4,6 +4,7 @@
 # include<unistd.h>
 # include<stdlib.h>
 # include<stdbool.h>
+# include<stdio.h>
 # include"ft_printf/ft_printf.h"
 # include"libft/libft.h"
 
@@ -19,6 +20,8 @@ typedef struct s_dlst
 	t_dnode	*head;
 	t_dnode	*tail;
 	int		size;
+	t_dnode	*liss_ptr;
+	int		liss_size;
 }			t_dlst;
 
 //push_swap.c
@@ -58,6 +61,9 @@ void	ft_pa(t_dlst *stack_a, t_dlst *stack_b, int *ops);
 void	print_dlst(t_dlst *stack, char *name);
 void	print_dlst_rev(t_dlst *stack, char *name);
 void	print_sorted(t_dlst *stack_t, int *ops);
+void	print_liss(t_dlst *stack);
 
+//liss.c
+void	liss(t_dlst *stack);
 
 #endif
