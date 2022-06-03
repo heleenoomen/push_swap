@@ -32,7 +32,7 @@ void	check_usage(int argc, char **argv, t_dlst *stack_a)
 		if (!ft_strisnumeric(argv[i]))
 		{
 			ft_printf("Error\n");
-			dlst_clear(&(stack_a->head));
+			dlst_clear(stack_a);
 			exit(0);
 		}
 		dlst_addnew(argv[i], stack_a);
@@ -56,8 +56,9 @@ int	main(int argc, char **argv)
 	dlst_init(&stack_a);
 	dlst_init(&stack_b);
 	check_usage(argc, argv, &stack_a);
-	//print_dlst_rev(&stack_a, "stack_a, reverse");
+	//print_dlst(&stack_a, "stack_a");
 	ft_sort(argc, &stack_a, &stack_b, &ops);
-	dlst_clear(&(stack_a.head));
-	dlst_clear(&(stack_b.head));
+	dlst_clear(&stack_a);
+	dlst_clear(&stack_b);
+	return (0);
 }

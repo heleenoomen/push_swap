@@ -12,13 +12,16 @@ void	print_dlst(t_dlst *stack, char *name)
 		ft_printf("\tlist is NULL\n");
 		return ;
 	}
-	while (i != NULL)
+	while (i != stack->tail)
 	{
 		ft_printf("\t%i\n", i->number);
 		i = i->next;
 	}
+	ft_printf("\t%i\n", i->number);
 	ft_printf("stack->head->number = %i\n", stack->head->number);
 	ft_printf("stack->tail->number = %i\n", stack->tail->number);
+	ft_printf("stack->head->previous->number = %i\n", stack->head->previous->number);
+	ft_printf("stack->tail->next->number = %i\n", stack->tail->next->number);	
 	ft_printf("-----------------------------\n");
 }
 
@@ -34,13 +37,16 @@ void	print_dlst_rev(t_dlst *stack, char *name)
 		ft_printf("\tlist is NULL\n");
 		return ;
 	}
-	while (i != NULL)
+	while (i != stack->head)
 	{
 		ft_printf("\t%i\n", i->number);
 		i = i->previous;
 	}
+	ft_printf("\t%i\n", i->number);
 	ft_printf("stack->head->number = %i\n", stack->head->number);
 	ft_printf("stack->tail->number = %i\n", stack->tail->number);
+	ft_printf("stack->head->previous->number = %i\n", stack->head->previous->number);
+	ft_printf("stack->tail->next->number = %i\n", stack->tail->next->number);	
 	ft_printf("-----------------------------\n");
 }
 
@@ -56,7 +62,7 @@ void	print_sorted(t_dlst *stack_a, int *ops)
 		return ;
 	}
 	ft_printf("We are sorted:");
-	while (i->next != NULL)
+	while (i != stack_a->tail)
 	{
 		ft_printf(" %i,", i->number);
 		i = i->next;
