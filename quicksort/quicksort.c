@@ -10,14 +10,14 @@ void	quicksort(int a[], int l, int r) // l = left, r = right
 
 	if (r > l)
 	{
-		v = r;
+		v = a[r];
 		i = l - 1;
 		j = r;
+
 		while (1)
 		{
 			while (a[++i] < a[v]) ;
-			while (a[j] > a[v])
-				j--;
+			while (a[--j] > a[v]) ;
 			if (i >= j)
 				break ;
 			t = a[i];
@@ -37,6 +37,7 @@ int	main(void)
 	int	arr[21] = {0, 'a', 'n', 'e', 'x', 'a', 'm', 'p', 'l', 'e', 'o', 'f', 'q', 'u', 'i', 'c', 'k', 's', 'o', 'r', 't'};
 	quicksort(arr, 1, 20);
 	int n = 0;
+	return 0;
 	while (n < 21)
 	{
 		printf("%c, ", (unsigned char) arr[n]);

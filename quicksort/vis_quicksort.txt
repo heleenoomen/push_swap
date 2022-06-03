@@ -124,80 +124,189 @@ LEFT
 |  a|  n|  e|  r|  a|  m|  p|  l|  e|  o|  f|  q|  o|  i|  c|  k|
 |  l|   |   |   |   |   |   |   |   |   |   |   |   |   |   |p,r|
 |  i|   |   |   |   |   |   |   |   |   |   |   |   |   |   |  j|
-																										12) repeat step 4-5
-																											a[p] = k
+																								12) repeat step 4-5
+																									a[p] = k
 LEFT
 |  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|
 |  a|  n|  e|  r|  a|  m|  p|  l|  e|  o|  f|  q|  o|  i|  c|  k|
 |  l|   |   |   |   |   |   |   |   |   |   |   |   |   |   |p,r|
 |   |  i|   |   |   |   |   |   |   |   |   |   |   |   |  j|   |
-																										13) swwap a[i] and a[j]
+																								13) swwap a[i] and a[j]
 
 LEFT
 |  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|
 |  a|  c|  e|  r|  a|  m|  p|  l|  e|  o|  f|  q|  o|  i|  n|  k|
 |  l|   |   |   |   |   |   |   |   |   |   |   |   |   |   |p,r|
 |   |  i|   |   |   |   |   |   |   |   |   |   |   |   |  j|   |
-																										14) repeat step 4-5, a[p] = k
+																								14) repeat step 4-5, a[p] = k
 
 LEFT
 |  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|
 |  a|  c|  e|  r|  a|  m|  p|  l|  e|  o|  f|  q|  o|  i|  n|  k|
 |  l|   |   |   |   |   |   |   |   |   |   |   |   |   |   |p,r|
 |   |   |   |  i|   |   |   |   |   |   |   |   |   |  j|   |   |
-																										15) swap a[i] and a[j]
+																								15) swap a[i] and a[j]
 LEFT
 |  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|
 |  a|  c|  e|  i|  a|  m|  p|  l|  e|  o|  f|  q|  o|  r|  n|  k|
 |  l|   |   |   |   |   |   |   |   |   |   |   |   |   |   |p,r|
 |   |   |   |  i|   |   |   |   |   |   |   |   |   |  j|   |   |
-																										16) repeat step 4-5, a[p] = k
+																								16) repeat step 4-5, a[p] = k
 
 LEFT
 |  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|
 |  a|  c|  e|  i|  a|  m|  p|  l|  e|  o|  f|  q|  o|  r|  n|  k|
 |  l|   |   |   |   |   |   |   |   |   |   |   |   |   |   |p,r|
 |   |   |   |   |   |  i|   |   |   |   |  j|   |   |   |   |   |
-																										17) swap a[i] and a[j]
+																								17) swap a[i] and a[j]
 
 LEFT
 |  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|
 |  a|  c|  e|  i|  a|  f|  p|  l|  e|  o|  m|  q|  o|  r|  n|  k|
 |  l|   |   |   |   |   |   |   |   |   |   |   |   |   |   |p,r|
 |   |   |   |   |   |  i|   |   |   |   |  j|   |   |   |   |   |
-																										16) repeat step 4-5, a[p] = k
+																								16) repeat step 4-5, a[p] = k
 
 LEFT
 |  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|
 |  a|  c|  e|  i|  a|  f|  p|  l|  e|  o|  m|  q|  o|  r|  n|  k|
 |  l|   |   |   |   |   |   |   |   |   |   |   |   |   |   |p,r|
 |   |   |   |   |   |   |  i|   |  j|   |   |   |   |   |   |   |
-																										17) swap a[i] and a[j]
+																								17) swap a[i] and a[j]
 
 LEFT
 |  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|
 |  a|  c|  e|  i|  a|  f|  e|  l|  p|  o|  m|  q|  o|  r|  n|  k|
 |  l|   |   |   |   |   |   |   |   |   |   |   |   |   |   |p,r|
 |   |   |   |   |   |   |  i|   |  j|   |   |   |   |   |   |   |
-																										18) move i and j
+																								18) move i and j
 
 LEFT
-|  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|										19) pointers crossed, swap a[i] and a[p]
+|  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|								19) pointers crossed, swap a[i] and a[p]
 |  a|  c|  e|  i|  a|  f|  e|  l|  p|  o|  m|  q|  o|  r|  n|  k|
 |  l|   |   |   |   |   |   |   |   |   |   |   |   |   |   |p,r|
 |   |   |   |   |   |   |  j|  i|   |   |   |   |   |   |   |   |
 
 LEFT
-|  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|										20) k is now at it's final position!
+|  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|								20) k is now at it's final position!
 |  a|  c|  e|  i|  a|  f|  e|  k|  p|  o|  m|  q|  o|  r|  n|  l|
 |  l|   |   |   |   |   |   |   |   |   |   |   |   |   |   |p,r|
 |   |   |   |   |   |   |  j|  i|   |   |   |   |   |   |   |   |
 
 							SORTED!										SORTED!
 							|  7|										| 16| 17| 18| 19|
-							|   |										|  s|  t|  u|  x|
+							|  k|										|  s|  t|  u|  x|
 
 LEFT							RIGHT
-|  0|  1|  2|  3|  4|  5|  6|		|  8|  9| 10| 11| 12| 13| 14| 15|
-|  a|  c|  e|  i|  a|  f|  e|		|  p|  o|  m|  q|  o|  r|  n|  l|
+|  0|  1|  2|  3|  4|  5|  6|		|  8|  9| 10| 11| 12| 13| 14| 15|							21) move pointera
+|  a|  c|  e|  i|  a|  f|  e|		|  p|  o|  m|  q|  o|  r|  n|  l|								a[p] right is l
+|  l|   |   |   |   |   |p,r|		|  l|   |   |   |   |   |   |p,r|								a[p] left is e
+|   |   |  i|   |  j|   |   |		| ji|   |   |   |   |   |   |   |
+
+																								22) swap a[i] and a[j] left
+LEFT							RIGHT
+|  0|  1|  2|  3|  4|  5|  6|		|  8|  9| 10| 11| 12| 13| 14| 15|							
+|  a|  c|  a|  i|  e|  f|  e|		|  p|  o|  m|  q|  o|  r|  n|  l|								
 |  l|   |   |   |   |   |p,r|		|  l|   |   |   |   |   |   |p,r|
+|   |   |  i|   |  j|   |   |		| ji|   |   |   |   |   |   |   |
+
+																								23) move pointers left, a[p] left is e
+LEFT							RIGHT
+|  0|  1|  2|  3|  4|  5|  6|		|  8|  9| 10| 11| 12| 13| 14| 15|							
+|  a|  c|  a|  i|  e|  f|  e|		|  p|  o|  m|  q|  o|  r|  n|  l|								
+|  l|   |   |   |   |   |p,r|		|  l|   |   |   |   |   |   |p,r|
+|   |   | j |  i|   |   |   |		| ji|   |   |   |   |   |   |   |
+
+																								24) pointers crossed on both sides
+																									swap a[i] and a[p]
+LEFT							RIGHT
+|  0|  1|  2|  3|  4|  5|  6|		|  8|  9| 10| 11| 12| 13| 14| 15|							
+|  a|  c|  a|  e|  e|  f|  i|		|  l|  o|  m|  q|  o|  r|  n|  p|								
+|  l|   |   |   |   |   |p,r|		|  l|   |   |   |   |   |   |p,r|
+|   |   | j |  i|   |   |   |		| ji|   |   |   |   |   |   |   |
+																								25) e on a[3] and l on a[8] are in final positions!
+
+				SORTED!					SORTED!										SORTED!
+				|  3|					|  7|  8|									| 16| 17| 18| 19|
+				|  e|					|  k|  l|									|  s|  t|  u|  x|
+
+LEFT					MIDDLE						RIGHT
+|  0|  1|  2|			|  4|  5|  6|				|  9| 10| 11| 12| 13| 14| 15|					26) move pointers
+|  a|  c|  a|			|  e|  f|  i|				|  o|  m|  q|  o|  r|  n|  p|					a[p] LEFT = a;
+|  l|   |p,r|			|  l|   |p,r|				|  l|   |   |   |   |   |p,r|					a[p] MIDDLE = i;
+|  i|   |  j|			|  i|   |  j|				|  i|   |   |   |   |   |  j|					a[p] RIGHT = p;
+
+
+LEFT					MIDDLE						RIGHT
+|  0|  1|  2|			|  4|  5|  6|				|  9| 10| 11| 12| 13| 14| 15|
+|  a|  c|  a|			|  e|  f|  i|				|  o|  m|  q|  o|  r|  n|  p|
+|  l|   |p,r|			|  l|   |p,r|				|  l|   |   |   |   |   |p,r|
+|  i|  j|   |			|   |  j|  i|				|   |   |  i|   |   |  j|   |		
+
+
+																								27) swap a[i] and a[j] for RIGHT
+LEFT					MIDDLE						RIGHT
+|  0|  1|  2|			|  4|  5|  6|				|  9| 10| 11| 12| 13| 14| 15|
+|  a|  c|  a|			|  e|  f|  i|				|  o|  m|  n|  o|  r|  q|  p|
+|  l|   |p,r|			|  l|   |p,r|				|  l|   |   |   |   |   |p,r|
+|  i|  j|   |			|   |  j|  i|				|   |   |  i|   |   |  j|   |
+
+
+																								28) move pointers RIGHT (a[p] right = p)
+LEFT					MIDDLE						RIGHT
+|  0|  1|  2|			|  4|  5|  6|				|  9| 10| 11| 12| 13| 14| 15|
+|  a|  c|  a|			|  e|  f|  i|				|  o|  m|  n|  o|  r|  q|  p|
+|  l|   |p,r|			|  l|   |p,r|				|  l|   |   |   |   |   |p,r|
+|  i|  j|   |			|   |  j|  i|				|   |   |   |  j|  i|   |   |
+
+																								29) swap a[i] and a[r] for LEFT, MIDDLE, RIGHT
+
+LEFT					MIDDLE						RIGHT
+|  0|  1|  2|			|  4|  5|  6|				|  9| 10| 11| 12| 13| 14| 15|				
+|  a|  c|  a|			|  e|  f|  i|				|  o|  m|  n|  o|  p|  q|  r|
+|  l|   |p,r|			|  l|   |p,r|				|  l|   |   |   |   |   |p,r|
+|  i|  j|   |			|   |  j|  i|				|   |   |   |  j|  i|   |   |
+																								30) a[0], a[6] and a[13] are now in their final position
+
+SORTED!			SORTED!			SORTED!							SORTED!				SORTED!
+|  0|			|  3|			|  6|  7|  8|					| 13|				| 16| 17| 18| 19|
+|  a|			|  e|			|  i|  k|  l|					|  p|				|  s|  t|  u|  x|
+
+	ONE				TWO							THREE					FOUR
+	|  1|  2|		|  4|  5|					|  9| 10| 11| 12|		| 14| 15|
+	|  c|  a|		|  e|  f|					|  o|  m|  n|  o|		|  q|  r|
+	|  l|p,r|		|  l|p,r|					|  l|   |   |p,r|		|  l|p,r|
+	|  i|  j|		|  i|  j|					|  i|   |   |  j|		|  i|  j|
+
+																								31) move pointers for all
+	ONE				TWO							THREE					FOUR
+	|  1|  2|		|  4|  5|					|  9| 10| 11| 12|		| 14| 15|
+	|  c|  a|		|  e|  f|					|  o|  m|  n|  o|		|  q|  r|
+	|  l|p,r|		|  l|p,r|					|  l|   |   |p,r|		|  l|p,r|
+	| ji|   |		|  j|  i|					|  i|   |  j|   |		|  j|  i|
+
+																								32) swap a[i] and a[j] for three
+	ONE				TWO							THREE					FOUR
+	|  1|  2|		|  4|  5|					|  9| 10| 11| 12|		| 14| 15|
+	|  c|  a|		|  e|  f|					|  n|  m|  o|  o|		|  q|  r|
+	|  l|p,r|		|  l|p,r|					|  l|   |   |p,r|		|  l|p,r|
+	| ji|   |		|  j|  i|					|  i|   |  j|   |		|  j|  i|
+
+																								33) move pointers for three
+
+	ONE				TWO							THREE					FOUR
+	|  1|  2|		|  4|  5|					|  9| 10| 11| 12|		| 14| 15|
+	|  c|  a|		|  e|  f|					|  n|  m|  o|  o|		|  q|  r|
+	|  l|p,r|		|  l|p,r|					|  l|   |   |p,r|		|  l|p,r|
+	| ji|   |		|  j|  i|					|   |  j|  i|   |		|  j|  i|
+
+																								34) all pointers crossed, swap a[i] and a[p] everywhere
+	ONE				TWO							THREE					FOUR
+	|  1|  2|		|  4|  5|					|  9| 10| 11| 12|		| 14| 15|
+	|  a|  c|		|  e|  f|					|  n|  m|  o|  o|		|  q|  r|
+	|  l|p,r|		|  l|p,r|					|  l|   |   |p,r|		|  l|p,r|
+	| ji|   |		|  j|  i|					|   |  j|  i|   |		|  j|  i|
+
+																								35) a at a[1], f at a[5], o at a[10] and r at a[15]
+																									are in final position. Here we have a problem with
+																									o at a[10]
