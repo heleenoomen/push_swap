@@ -21,9 +21,12 @@ typedef struct s_dlst
 	t_dnode	*head;
 	t_dnode	*tail;
 	int		size;
-	t_dnode	*liss_ptr;
-	int		liss_size;
+	int		min;
+	int		max;
 }			t_dlst;
+
+# define MIN_INT	-2147483648
+# define MAX_INT	2147483648
 
 //push_swap.c
 bool	ft_strisnumeric(const char *s);
