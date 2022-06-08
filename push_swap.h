@@ -12,6 +12,7 @@ typedef struct s_dnode
 {
 	struct s_dnode	*previous;
 	int				number;
+	int				id;
 	struct s_dnode	*next;
 }					t_dnode;
 
@@ -62,8 +63,12 @@ void	print_dlst(t_dlst *stack, char *name);
 void	print_dlst_rev(t_dlst *stack, char *name);
 void	print_sorted(t_dlst *stack_t, int *ops);
 void	print_liss(t_dlst *stack);
+void	print_quickso_dlst(t_dnode *head, t_dnode *tail, t_dnode *i, t_dnode *j);
 
 //liss.c
 void	liss(t_dlst *stack);
+
+//quickso_dlst.c
+void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail);
 
 #endif

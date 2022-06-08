@@ -14,10 +14,10 @@ void	print_dlst(t_dlst *stack, char *name)
 	}
 	while (i != stack->tail)
 	{
-		ft_printf("\t%i\n", i->number);
+		ft_printf("\t%i\tid = %i\n", i->number, i->id);
 		i = i->next;
 	}
-	ft_printf("\t%i\n", i->number);
+	ft_printf("\t%i\tid = %i\n", i->number, i->id);
 	ft_printf("stack->head->number = %i\n", stack->head->number);
 	ft_printf("stack->tail->number = %i\n", stack->tail->number);
 	ft_printf("stack->head->previous->number = %i\n", stack->head->previous->number);
@@ -39,10 +39,10 @@ void	print_dlst_rev(t_dlst *stack, char *name)
 	}
 	while (i != stack->head)
 	{
-		ft_printf("\t%i\n", i->number);
+		ft_printf("\t%i\tid = %i\n", i->number, i->id);
 		i = i->previous;
 	}
-	ft_printf("\t%i\n", i->number);
+	ft_printf("\t%i\tid = %i\n", i->number, i->id);
 	ft_printf("stack->head->number = %i\n", stack->head->number);
 	ft_printf("stack->tail->number = %i\n", stack->tail->number);
 	ft_printf("stack->head->previous->number = %i\n", stack->head->previous->number);
@@ -92,5 +92,15 @@ void	print_liss(t_dlst *stack)
 		if (i == stack->liss_ptr)
 			break ;
 	}
+	ft_printf("-------------------------------\n");
+}
+
+void	print_quickso_dlst(t_dnode *head, t_dnode *tail, t_dnode *i, t_dnode *j)
+{
+	ft_printf("-------------------------------\n");
+	ft_printf("head->number = %i\thead->id = %i\n", head->number, head->id);
+	ft_printf("tail->number = %i\ttail->id = %i\n", tail->number, tail->id);
+	ft_printf("i->number = %i\t\ti->id = %i\n", i->number, i->id);
+	ft_printf("j->number = %i\t\tj->id = %i\n", j->number, j->id);
 	ft_printf("-------------------------------\n");
 }

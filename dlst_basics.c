@@ -20,7 +20,7 @@ void	dlst_addnew(const char *s, t_dlst *stack)
 
 void	dlst_addlast(t_dnode *new, t_dlst *stack)
 {
-	t_dnode *i;
+	// t_dnode *i;
 
 	if (stack->head == NULL)
 	{
@@ -31,14 +31,11 @@ void	dlst_addlast(t_dnode *new, t_dlst *stack)
 		stack->size++;
 		return ;
 	}
-	i = stack->head;
-	while (i != stack->tail)
-		i = i->next;
-	i->next = new;
-	new->previous = i;
-	stack->tail = new;
 	new->next = stack->head;
+	new->previous = stack->tail;
 	stack->head->previous = new;
+	stack->tail->next = new;
+	stack->tail = new;
 	stack->size++;
 }
 
