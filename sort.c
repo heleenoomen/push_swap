@@ -39,7 +39,27 @@ void	ft_sort_four(t_dlst *stack_a, t_dlst *stack_b, int *ops)
 {
 	ft_pb(stack_a, stack_b, ops);
 	ft_sort_three(stack_a, ops);
+	if (stack_b->head->number > stack_a->tail->number)
+	{
+		ft_pa(stack_a, stack_b, ops);
+		ft_ra(stack_a, ops);
+		return ;
+	}
+	if (stack_b->head->number > stack_a->tail->previous->number)
+	{
+		ft_rra(stack_a, ops);
+		ft_pa(stack_a, stack_b, ops);
+		ft_ra(stack_a, ops);
+		ft_ra(stack_a, ops);
+		return ;
+	}
+	if (stack_b->head->number < stack_a->head->number)
+	{
+		ft_pa(stack_a, stack_b, ops);
+		return ; 
+	}
 	ft_pa(stack_a, stack_b, ops);
+	ft_sa(stack_a, ops);
 	return ;
 }
 
@@ -63,7 +83,7 @@ void	ft_sort(int argc, t_dlst *stack_a, t_dlst *stack_b, int *ops)
 		ft_sort_four(stack_a, stack_b, ops);
 	else if (argc == 6)
 		ft_sort_five(stack_a, stack_b, ops);
-	print_sorted(stack_a, ops);
-	print_dlst(stack_a, "stack a");
-	print_dlst_rev(stack_a, "stack a reverse:");
+	//print_sorted(stack_a, ops);
+	//print_dlst(stack_a, "stack a");
+	//print_dlst_rev(stack_a, "stack a reverse:");
 }

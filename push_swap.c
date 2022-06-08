@@ -20,12 +20,67 @@ bool	ft_strisnumeric(const char *s)
 	return (true);
 }
 
-void	check_usage(int argc, char **argv, t_dlst *stack_a)
+void	ft_free_argv_ps(char **arr)
+{
+	int		i;
+
+	i = 1;
+	while (arr[i] != NULL)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
+
+char	**ft_split_shift(char *s, char c)
+{
+	char	**temp;
+	char	**argv;
+	int		count;
+	int		i;
+
+	temp = ft_split(s, c);
+	count = 0;
+	while (temp[count] != NULL)
+		count++;
+	argv = malloc((count + 2) * sizeof(char *));
+	if (argv == NULL)
+		return (NULL);
+	argv[0] = NULL;
+	i = 0;
+	while (i < (count + 1))
+	{
+		argv[i+1] = temp[i];
+		i++;
+	}
+	free(temp);
+	return (argv);
+}
+
+
+int	make_stack_a(int argc, char **argv, t_dlst *stack_a)
 {
 	int	i;
+	int	is_single;
 
 	if (argc == 1)
 		exit(0);
+	if (argc == 2)
+	{
+		argv = ft_split_shift(argv[1], ' ');
+		if (argv == NULL)
+		{
+			ft_printf("Error\n");
+			exit(0);
+		}
+		argc = 1;
+		while (argv[argc] != NULL)
+			argc++;
+		is_single = 1;
+	}
+	else
+		is_single = 0;
 	i = 1;
 	while (argv[i] != NULL)
 	{
@@ -39,6 +94,9 @@ void	check_usage(int argc, char **argv, t_dlst *stack_a)
 		stack_a->tail->id = i - 1;
 		i++;
 	}
+	if (is_single)
+		ft_free_argv_ps(argv);
+	return (argc);
 }
 
 void	check(void)
@@ -52,16 +110,18 @@ int	main(int argc, char **argv)
 	t_dlst	stack_b;
 	int		ops;
 
-	atexit(check);
+	//atexit(check);
+	if (argc == 1)
+		return (0);
 	ops = 0;
 	dlst_init(&stack_a);
 	dlst_init(&stack_b);
-	check_usage(argc, argv, &stack_a);
+	argc = make_stack_a(argc, argv, &stack_a);
+	//check_usage(argc, argv, &stack_a);
 	//print_dlst(&stack_a, "stack_a;");
 	//print_dlst_rev(&stack_a, "stack_a reverse:");
 	//liss(&stack_a);
 	//print_liss(&stack_a);
-
 	ft_sort(argc, &stack_a, &stack_b, &ops);
 	//quickso_dlst(&stack_a, stack_a.head, stack_a.tail);
 	//printf("------------AFTER QUICKSO_DLST--------------\n");

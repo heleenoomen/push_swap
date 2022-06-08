@@ -48,7 +48,7 @@ void	ft_sort(int argc, t_dlst *stack_a, t_dlst *stack_b, int *ops);
 void	ft_swap(t_dlst *stack);
 void	ft_rotate(t_dlst *stack);
 void	ft_rotate_rev(t_dlst *stack);
-void	ft_push(t_dlst *from, t_dlst *to);
+bool	ft_push(t_dlst *from, t_dlst *to);
 void	ft_sa(t_dlst *stack_a, int *ops);
 void	ft_sb(t_dlst *stack_b, int *ops);
 void	ft_ra(t_dlst *stack_a, int *ops);

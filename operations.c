@@ -31,12 +31,15 @@ void	ft_rotate_rev(t_dlst *stack)
 	stack->tail = stack->head->previous;
 }
 
-void	ft_push(t_dlst *from, t_dlst *to)
+bool	ft_push(t_dlst *from, t_dlst *to)
 {
 	t_dnode	*temp;
 
 	temp = dlst_detachfirst(from);
+	if (temp == NULL)
+		return (-1);
 	dlst_addfront(temp, to);
+	return (0);
 }
 
 void	ft_sa(t_dlst *stack_a, int *ops)

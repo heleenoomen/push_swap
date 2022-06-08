@@ -20,8 +20,6 @@ void	dlst_addnew(const char *s, t_dlst *stack)
 
 void	dlst_addlast(t_dnode *new, t_dlst *stack)
 {
-	// t_dnode *i;
-
 	if (stack->head == NULL)
 	{
 		stack->head = new;
@@ -79,10 +77,7 @@ t_dnode	*dlst_detachfirst(t_dlst *stack)
 	t_dnode	*first_node;
 
 	if (stack->head == NULL)
-	{
-		ft_printf("stack is empty!");
-		return (stack->head);
-	}
+		return (NULL);
 	first_node = stack->head;
 	if (stack->head == stack->tail)
 	{

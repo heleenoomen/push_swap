@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 10:21:52 by hoomen            #+#    #+#             */
-/*   Updated: 2022/05/17 16:40:58 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/08 16:51:35 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,7 @@ void	ft_fillarr(const char *s, char c, size_t nsubs, char ***arr)
 char	**ft_split(const char *s, char c)
 {
 	char	**arr;
-	char	*trav;
 	size_t	nsubs;
-	size_t	sublen;
-	size_t	i;
 
 	if (s == NULL)
 		return (NULL);
