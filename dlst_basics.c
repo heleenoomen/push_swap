@@ -150,3 +150,27 @@ t_dnode	*dlst_detachfirst(t_dlst *stack)
 		reset_min(stack);
 	return (first_node);
 }
+
+t_dlst	*dlst_dup(t_dlst *dlst)
+{
+	t_dnode	*dup;
+	t_dnode	*new;
+	t_dnode	*i;
+
+	dup = malloc(sizeof(t_dlst));
+	dlst_init(dup);
+	i = dlst->head;
+	while(1)
+	{
+		new = malloc(sizeof(t_dnode));
+		new->id = i->id;
+		new->number = i->number;
+		new->next = NULL;
+		new->previous = NULL;
+		ft_lstadd_back(dup, new);
+		i = i->next;
+		if (i == dlst->head)
+			break ;
+	}
+	return (dup);
+}

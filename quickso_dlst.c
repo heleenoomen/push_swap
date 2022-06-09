@@ -12,7 +12,6 @@ void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail)
 	i = head;
 	j = tail;
 	v = tail->number;
-	print_quickso_dlst(head, tail, i, j);
 	while (1)
 	{
 		while (i->number < v && i != tail)
@@ -28,9 +27,9 @@ void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail)
 	temp = i->number;
 	i->number = v;
 	tail->number = temp;
-	print_quickso_dlst(head, tail, i, j);
+	//print_quickso_dlst(head, tail, i, j);
 	if (i != head)
-		quickso_dlst(stack, stack->head, i->previous);
+		quickso_dlst(stack, head, i->previous);
 	if (i != tail)
-		quickso_dlst(stack, i->next, stack->tail);
+		quickso_dlst(stack, i->next, tail);
 }

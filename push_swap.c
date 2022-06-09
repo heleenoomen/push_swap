@@ -120,8 +120,8 @@ int	main(int argc, char **argv)
 	//check_usage(argc, argv, &stack_a);
 	//print_dlst(&stack_a, "stack_a;");
 	//print_dlst_rev(&stack_a, "stack_a reverse:");
-	ft_sort_v2(argc, &stack_a, &stack_b, &ops);
-	//quickso_dlst(&stack_a, stack_a.head, stack_a.tail);
+	//ft_sort_v2(argc, &stack_a, &stack_b, &ops);
+	quickso_dlst(&stack_a, stack_a.head, stack_a.tail);
 	print_sorted(&stack_a, &ops);
 	//print_dlst_rev(&stack_a, "stack_a reverse");
 	dlst_clear(&stack_a);
