@@ -53,6 +53,8 @@ void	dlst_addfront(t_dnode *new, t_dlst *stack)
 		stack->tail = new;
 		new->next = new;
 		new->previous = new;
+		stack->min = new->number;
+		stack->max = new->number;
 		stack->size++;
 		return ;
 	}
@@ -62,6 +64,10 @@ void	dlst_addfront(t_dnode *new, t_dlst *stack)
 	stack->head->previous = stack->tail;
 	stack->tail->next = stack->head;
 	stack->size++;
+	if (new->number < stack->min)
+		stack->min = new->number;
+	if (new->number > stack->max)
+		stack->max = new->number;
 }
 
 void	dlst_clear(t_dlst *stack)
@@ -87,11 +93,13 @@ void	reset_min(t_dlst *stack)
 
 	min = stack->head->number;
 	i = stack->head;
-	while (i != stack->head)
+	while (1)
 	{
 		if (i->number < min)
 			min = i->number;
 		i = i->next;
+		if (i == stack->head)
+			break ;
 	}
 	stack->min = min;
 }
@@ -100,14 +108,16 @@ void	reset_max(t_dlst *stack)
 {
 	int		max;
 	t_dnode	*i;
-
+;
 	max = stack->head->number;
 	i = stack->head;
-	while (i != stack->head)
+	while (1)
 	{
 		if (i->number > max)
 			max = i->number;
 		i = i->next;
+		if (i == stack->head)
+			break ;
 	}
 	stack->max = max;
 }

@@ -8,18 +8,21 @@ void	insert_max(t_dlst *stack_a, t_dlst *stack_b, int *ops)
 
 	count = 0;
 	mid = stack_a->size / 2;
-	i = stack_a->head;
-	while (count < mid && i->number != stack_a->max)
-		i = i->next;
+	i = stack_a->tail;
+	while (count <= mid && i->number != stack_a->max)
+	{
+		i = i->previous;
+		count++;
+	}
 	if (count <= mid)
 	{
 		while (stack_a->tail->number != stack_a->max)
-			ft_ra(stack_a, ops);
+			ft_rra(stack_a, ops);
 	}
 	else
 	{
 		while (stack_a->tail->number != stack_a->max)
-			ft_rra(stack_a, ops);
+			ft_ra(stack_a, ops);
 	}
 	ft_pa(stack_a, stack_b, ops);
 }
@@ -33,8 +36,11 @@ void	insert_min(t_dlst *stack_a, t_dlst *stack_b, int *ops)
 	count = 0;
 	mid = stack_a->size / 2;
 	i = stack_a->head;
-	while (count < mid && i->number != stack_a->min)
+	while (count <= mid && i->number != stack_a->min)
+	{
 		i = i->next;
+		count++;
+	}
 	if (count <= mid)
 	{
 		while (stack_a->head->number != stack_a->min)
@@ -59,8 +65,18 @@ void	insert_inbetw(t_dlst *stack_a, t_dlst *stack_b, int *ops)
 	count = 0;
 	mid = stack_a->size / 2;
 	i = stack_a->head;
-	while (count < mid && !(stack_a->head->number >= v && stack_a->tail->number <= v))
+	
+	if (stack_b->size == 1 && v >= i->number && v <= i->next->number)
+	{
+		ft_pa(stack_a, stack_b, ops);
+		ft_sa(stack_a, ops);
+		return ; 
+	}
+	while (count <= mid && !(v <= i->number && v >= i->previous->number))
+	{
 		count++;
+		i = i->next;
+	}
 	if (count <= mid)
 	{
 		while (!(stack_a->head->number >= v && stack_a->tail->number <= v))
@@ -83,11 +99,13 @@ void	final_rotation(t_dlst *stack_a, int *ops)
 	mid = stack_a->size / 2;
 	count = 0;
 	i = stack_a->head;
-	while (count < mid && i->number != stack_a->min)
+	//ft_printf("stack_a->min = %i\n", stack_a->min);
+	while (count <= mid && i->number != stack_a->min)
 	{
 		count++;
 		i = i->next;
 	}
+	//ft_printf("count = %i\n", count);
 	if (count <= mid)
 	{
 		while (stack_a->head->number != stack_a->min)

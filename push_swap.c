@@ -118,12 +118,12 @@ int	main(int argc, char **argv)
 	dlst_init(&stack_b);
 	argc = make_stack_a(argc, argv, &stack_a);
 	//check_usage(argc, argv, &stack_a);
-	print_dlst(&stack_a, "stack_a;");
-	print_dlst_rev(&stack_a, "stack_a reverse:");
+	//print_dlst(&stack_a, "stack_a;");
+	//print_dlst_rev(&stack_a, "stack_a reverse:");
 	ft_sort_v2(argc, &stack_a, &stack_b, &ops);
 	//quickso_dlst(&stack_a, stack_a.head, stack_a.tail);
-	print_dlst(&stack_a, "stack_a");
-	print_dlst_rev(&stack_a, "stack_a reverse");
+	print_sorted(&stack_a, &ops);
+	//print_dlst_rev(&stack_a, "stack_a reverse");
 	dlst_clear(&stack_a);
 	dlst_clear(&stack_b);
 	return (0);
