@@ -136,7 +136,7 @@ int	main(int argc, char **argv)
 	t_dlst	stack_b;
 	int		ops;
 
-	atexit(check);
+	//atexit(check);
 	if (argc == 1)
 		return (0);
 	ops = 0;
@@ -147,7 +147,6 @@ int	main(int argc, char **argv)
 	//check_usage(argc, argv, &stack_a);
 	//print_dlst(&stack_a, "stack_a;");
 	//print_dlst_rev(&stack_a, "stack_a reverse:");
-	ft_printf("checked");
 	ft_sort_v2(argc, &stack_a, &stack_b, &ops);
 	print_sorted(&stack_a, &ops);
 	//print_dlst_rev(&stack_a, "stack_a reverse");

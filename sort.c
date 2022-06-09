@@ -184,11 +184,11 @@ void	ft_sort_v2(int argc, t_dlst *stack_a, t_dlst *stack_b, int *ops)
 		return ;
 	if (argc == 3)
 		ft_sort_two(stack_a, ops);
-	else if (argc < 8)
-		sort_small(stack_a, stack_b, ops);
+	else //if (argc < 8)
+		sort_small_sortb(stack_a, stack_b, ops);
 	//else if (argc < 12)
 		//ft_sort_middle(argc, stack_a, stack_b, ops);
-	else
-		return ;
+	//else
+		//return ;
 		//ft_sort_large(argc, stack_a, stack_b, ops);
 }

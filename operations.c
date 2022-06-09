@@ -6,8 +6,18 @@ void	ft_swap(t_dlst *stack)
 	t_dnode *second;
 	t_dnode *third;
 
+	if (stack->size == 0)
+		return ;
+	if (stack->size == 1)
+		return ;
 	first = stack->head;
 	second = stack->head->next;
+	if (stack->size == 2)
+	{
+		stack->head = second;
+		stack->tail = first;
+		return ;
+	}
 	third = stack->head->next->next;
 	stack->head = second;
 	second->previous = stack->tail;

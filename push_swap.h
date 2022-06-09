@@ -28,6 +28,10 @@ typedef struct s_dlst
 # define MIN_INT	-2147483648
 # define MAX_INT	2147483648
 
+# define pr_sb	print_dlst(stack_b, "stack b")
+# define pr_sa	print_dlst(stack_a, "stack a")
+# define ps		print_stacks(stack_a, stack_b)
+
 //push_swap.c
 bool	ft_strisnumeric(const char *s);
 void	check_usage(int argc, char **argv, t_dlst *stack_a);
@@ -77,11 +81,24 @@ void	print_dlst_rev(t_dlst *stack, char *name);
 void	print_sorted(t_dlst *stack_t, int *ops);
 void	print_liss(t_dlst *stack);
 void	print_quickso_dlst(t_dnode *head, t_dnode *tail, t_dnode *i, t_dnode *j);
+void	print_stacks(t_dlst *a, t_dlst *b);
 
 //liss.c
 void	liss(t_dlst *stack);
 
 //quickso_dlst.c
 void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail);
+
+//sort_small_sortb.c
+bool	closer_to_top(t_dlst *stack, int nbr);
+void	insert_rb(t_dlst *stack_a, t_dlst *stack_b, int *ops);
+void	insert_rrb(t_dlst *stack_a, t_dlst *stack_b, int *ops);
+void	ft_pb_sort(t_dlst *stack_a, t_dlst *stack_b, int *ops);
+void	ins_back(t_dlst *stack_a, t_dlst *stack_b, int *ops);
+void	sort_small_sortb(t_dlst *stack_a, t_dlst *stack_b, int *ops);
+
+
+
+
 
 #endif

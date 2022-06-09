@@ -104,3 +104,76 @@ void	print_quickso_dlst(t_dnode *head, t_dnode *tail, t_dnode *i, t_dnode *j)
 	ft_printf("j->number = %i\t\tj->id = %i\n", j->number, j->id);
 	ft_printf("-------------------------------\n");
 }
+
+void	print_stacks(t_dlst *a, t_dlst *b)
+{
+	t_dnode *i;
+	t_dnode *j;
+	int		pad_a;
+	int		pad_b;
+
+	pad_a = 0;
+	pad_b = 0;
+	if (a->size > b->size)
+		pad_b = a->size - b->size;
+	if (a->size < b->size)
+		pad_a = b->size - a->size;
+	i = a->head;
+	j = b->head;
+	ft_printf("-------------------------------\n");
+	ft_printf("stack a:\tstack b:\n");
+	if (!pad_a && !pad_b)
+	{
+		while (i != a->tail && j != b->tail)
+		{
+			ft_printf("\t%i\t%i\n", i->number, j->number);
+			i = i->next;
+			j = j->next;
+		}
+		ft_printf("\t%i\t%i\n", i->number, j->number);
+	}
+	if (pad_a)
+	{
+		while (j != b->tail)
+		{
+			if (pad_a)
+			{
+				ft_printf("\t\t%i\n", j->number);
+				pad_a--;
+				j = j->next;
+			}
+			else
+			{
+				ft_printf("\t%i\t%i\n", i->number, j->number);
+				i = i->next;
+				j = j->next;
+			}
+		}
+		if (!pad_a)
+			ft_printf("\t%i", i->number);
+		ft_printf("\t%i\n", j->number);
+	}
+	if (pad_b)
+		{
+		while (i != a->tail)
+		{
+			if (pad_b)
+			{
+				ft_printf("\t%i\n", i->number);
+				pad_b--;
+				i = i->next;
+			}
+			else
+			{
+				ft_printf("\t%i\t%i\n", i->number, j->number);
+				i = i->next;
+				j = j->next;
+			}
+		}
+		ft_printf("\t%i", i->number);
+		if (!pad_b)
+			ft_printf("\t%i", j->number);
+		ft_printf("\n");
+	}
+	ft_printf("-------------------------------\n");
+}
