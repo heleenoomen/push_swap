@@ -104,24 +104,51 @@ void	check(void)
 	system("leaks push_swap");
 }
 
+void	check_for_duplicates(t_dlst *stack_a)
+{
+	t_dlst	*dup;
+	t_dnode	*i;
+	
+	dup = dlst_dup(stack_a);
+	quickso_dlst(dup, dup->head, dup->tail);
+	i = dup->head;
+	while (1)
+	{
+		if (i->number == i->next->number)
+		{
+			dlst_clear(dup);
+			dlst_clear(stack_a);
+			free(dup);
+			ft_printf("Error\n");
+			exit(0);
+		}
+		i = i->next;
+		if (i == dup->head)
+			break;
+	}
+	dlst_clear(dup);
+	free(dup);
+}
+
 int	main(int argc, char **argv)
 {
 	t_dlst	stack_a;
 	t_dlst	stack_b;
 	int		ops;
 
-	//atexit(check);
+	atexit(check);
 	if (argc == 1)
 		return (0);
 	ops = 0;
 	dlst_init(&stack_a);
 	dlst_init(&stack_b);
 	argc = make_stack_a(argc, argv, &stack_a);
+	check_for_duplicates(&stack_a);
 	//check_usage(argc, argv, &stack_a);
 	//print_dlst(&stack_a, "stack_a;");
 	//print_dlst_rev(&stack_a, "stack_a reverse:");
-	//ft_sort_v2(argc, &stack_a, &stack_b, &ops);
-	quickso_dlst(&stack_a, stack_a.head, stack_a.tail);
+	ft_printf("checked");
+	ft_sort_v2(argc, &stack_a, &stack_b, &ops);
 	print_sorted(&stack_a, &ops);
 	//print_dlst_rev(&stack_a, "stack_a reverse");
 	dlst_clear(&stack_a);

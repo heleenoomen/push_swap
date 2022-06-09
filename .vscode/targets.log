@@ -8,11 +8,10 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Thu Jun  9 12:59:12 2022
+# Make data base, printed on Thu Jun  9 15:02:26 2022
 
 # Variables
 
- 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
@@ -40,7 +39,7 @@ MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/vscode-ipc-1609b23f-cf9d-41a9-9b79-d86cbcc03b37.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/vscode-ipc-097639d1-e7d5-4430-aa32-c6fe2a6e485b.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -56,7 +55,7 @@ GNLOBJS = $(GNLFILES:.c=.o)
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.VRHPZGw9j7/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.mGVCogF3OE/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -158,7 +157,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 74094
+VSCODE_PID = 6526
 # variable set hash-table stats:
 # Load=73/1024=7%, Rehash=0, Collisions=4/112=4%
 
@@ -168,9 +167,9 @@ VSCODE_PID = 74094
 
 # Directories
 
-# . (device 16777225, inode 1054228): 25 files, no impossibilities.
+# . (device 16777225, inode 1054228): 27 files, no impossibilities.
 
-# 25 files, no impossibilities in 1 directories.
+# 27 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -186,7 +185,7 @@ VSCODE_PID = 74094
 # Not a target:
 push_swap.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-09 12:14:58
+#  Last modified 2022-06-09 14:55:25
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -323,9 +322,9 @@ ft_printf/ft_pad.o:
 
 # Not a target:
 libft/ft_calloc.o:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
@@ -458,6 +457,6 @@ libft/ft_atoi.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Jun  9 12:59:12 2022
+# Finished Make data base on Thu Jun  9 15:02:26 2022
 
  

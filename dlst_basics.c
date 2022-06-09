@@ -153,7 +153,7 @@ t_dnode	*dlst_detachfirst(t_dlst *stack)
 
 t_dlst	*dlst_dup(t_dlst *dlst)
 {
-	t_dnode	*dup;
+	t_dlst	*dup;
 	t_dnode	*new;
 	t_dnode	*i;
 
@@ -167,7 +167,7 @@ t_dlst	*dlst_dup(t_dlst *dlst)
 		new->number = i->number;
 		new->next = NULL;
 		new->previous = NULL;
-		ft_lstadd_back(dup, new);
+		dlst_addlast(new, dup);
 		i = i->next;
 		if (i == dlst->head)
 			break ;

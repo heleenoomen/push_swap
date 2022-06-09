@@ -41,6 +41,7 @@ void	dlst_clear(t_dlst *stack);
 void	reset_min(t_dlst *stack);
 void	reset_max(t_dlst *stack);
 t_dnode	*dlst_detachfirst(t_dlst *stack);
+t_dlst	*dlst_dup(t_dlst *dlst);
 
 //sort.c
 void	ft_sort_two(t_dlst *stack_a, int *ops);
