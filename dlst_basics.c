@@ -29,8 +29,8 @@ void	dlst_addlast(t_dnode *new, t_dlst *stack)
 		new->next = new;
 		new->previous = new;
 		stack->size++;
-		stack->min = new;
-		stack->max = new;
+		stack->min = new->number;
+		stack->max = new->number;
 		return ;
 	}
 	new->next = stack->head;
@@ -96,7 +96,7 @@ void	reset_min(t_dlst *stack)
 	stack->min = min;
 }
 
-void	reset_min(t_dlst *stack)
+void	reset_max(t_dlst *stack)
 {
 	int		max;
 	t_dnode	*i;
@@ -123,6 +123,9 @@ t_dnode	*dlst_detachfirst(t_dlst *stack)
 	{
 		stack->head = NULL;
 		stack->tail = NULL;
+		stack->max = 0;
+		stack->min = 0;
+		stack->size = 0;
 		return (first_node);
 	}
 	stack->head = stack->head->next;

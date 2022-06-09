@@ -1,0 +1,82 @@
+24
+59
+86
+2
+15
+54
+85
+54
+62
+63
+
+push b until only 3 left
+
+	85
+	54
+	15
+	2
+54	86
+62	59
+63	24			a min = 54, a max = 63
+
+head_b > a_max, a_tail == a->max ==> pa, 
+
+	54
+	15
+85	2
+54	86
+62	59
+63	24
+
+head_b <= a min, a->min = closer to top  (a->min = a->head->next)
+pa			sa	
+54	15		85	15
+85	2		54	2
+54	86		54	86
+62	59		62	59
+63	24		63	24
+
+head_b <= a min, a->min = closer to top, a->min is in 2nd position
+pa			sa
+15			85
+85			15
+54			54
+54	2		54	2	
+62	59		62	59
+63	24		63	24
+
+head_b <= a min, a->min = closer to top, a->min is in 2nd position
+pa			sa
+2			85
+85			2
+15			15
+54			54
+54	59		54	59
+62	24		62	24
+
+head_b is in between, closer to bottom, pos = a_tail->next (2nd position from bottom)
+rra			pa
+			59
+62			62
+85			85
+2			2
+15			15
+54	59		54
+54	24		54	24
+
+head_b is in between, pos is closer to bottom
+rra			rra		pa
+54			54		24
+59			54		54
+62			59		54	
+85			62		59
+2			85		62
+15			2		85
+54	24		15		2
+					15
+
+rra, rra
+
+
+
+

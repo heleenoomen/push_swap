@@ -38,6 +38,8 @@ void	dlst_addnew(const char *s, t_dlst *stack);
 void	dlst_addlast(t_dnode *new, t_dlst *stack);
 void	dlst_addfront(t_dnode *new, t_dlst *stack);
 void	dlst_clear(t_dlst *stack);
+void	reset_min(t_dlst *stack);
+void	reset_max(t_dlst *stack);
 t_dnode	*dlst_detachfirst(t_dlst *stack);
 
 //sort.c
@@ -46,6 +48,13 @@ void	ft_sort_three(t_dlst *stack_a, int *ops);
 void	ft_sort_four(t_dlst *stack_a, t_dlst *stack_b, int *ops);
 void	ft_sort_five(t_dlst *stack_a, t_dlst *stack_b, int *ops);
 void	ft_sort(int argc, t_dlst *stack_a, t_dlst *stack_b, int *ops);
+void	ft_sort_v2(int argc, t_dlst *stack_a, t_dlst *stack_b, int *ops);
+
+//sort_small.c
+void	insert_max(t_dlst *stack_a, t_dlst *stack_b, int *ops);
+void	insert_min(t_dlst *stack_a, t_dlst *stack_b, int *ops);
+void	insert_inbetw(t_dlst *stack_a, t_dlst *stack_b, int *ops);
+void	sort_small(t_dlst *stack_a, t_dlst *stack_b, int *ops);
 
 //operations.c
 void	ft_swap(t_dlst *stack);
