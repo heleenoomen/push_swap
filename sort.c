@@ -2,7 +2,7 @@
 
 void	ft_sort_two(t_dlst *a, int *ops)
 {
-	if (a->head->number <= a->tail->number)
+	if (a->head->nb <= a->tail->nb)
 		print_sorted(a, ops);
 	else 
 		ft_sa(a, ops);
@@ -12,9 +12,9 @@ void	ft_sort_three(t_dlst *a, int *ops)
 {
 	int	nbrs[3];
 	
-	nbrs[0] = a->head->number;
-	nbrs[1] = a->head->next->number;
-	nbrs[2] = a->tail->number;
+	nbrs[0] = a->head->nb;
+	nbrs[1] = a->head->next->nb;
+	nbrs[2] = a->tail->nb;
 	if (nbrs[0] <= nbrs[1] && nbrs[1] <= nbrs[2])  // (1 2 3) WORKS
 		return ;
 	else if (nbrs[1] <= nbrs[0] && nbrs[0] <= nbrs[2]) // (2 1 3) WORKS
@@ -44,10 +44,10 @@ void	ft_sort(t_dlst *a, t_dlst *sor, int *ops)
 		return ;
 	if (a->size == 2)
 		ft_sort_two(a, ops);
-	else if (a->size < 21)
+	else //if (a->size < 21)
 		sort_small(a, &b, ops);
-	else
-		sort_big(a, &b, sor, ops);
+	//else
+		//sort_big(a, &b, sor, ops);
 	sor->size = 15;
 	dlst_clear(&b);
 }

@@ -10,8 +10,8 @@
 
 typedef struct s_dnode
 {
-	struct s_dnode	*previous;
-	int				number;
+	struct s_dnode	*prev;
+	int				nb;
 	int				id;
 	struct s_dnode	*next;
 }					t_dnode;
@@ -24,6 +24,12 @@ typedef struct s_dlst
 	int		min;
 	int		max;
 }			t_dlst;
+
+typedef struct s_p
+{
+	int		nb;
+	bool	top;
+}			t_p;
 
 # define MIN_INT	-2147483648
 # define MAX_INT	2147483648

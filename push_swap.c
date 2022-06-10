@@ -111,7 +111,7 @@ void	check_dupl(t_dlst *a, t_dlst *sor)
 	i = sor->head;
 	while (1)
 	{
-		if (i->number == i->next->number)
+		if (i->nb == i->next->nb)
 		{
 			dlst_clear(sor);
 			dlst_clear(a);
@@ -142,10 +142,10 @@ int	main(int argc, char **argv)
 	ops = 0;
 	make_a(argc, argv, &a);
 	make_sor(&a, &sor);
-	print_dlst(&sor, "sor");
+	//print_dlst(&sor, "sor");
 	check_dupl(&a, &sor);
 	ft_sort(&a, &sor, &ops);
-	//print_sorted(&a, &ops);
+	print_sorted(&a, &ops);
 	dlst_clear(&a);
 	//dlst_clear(&b);
 	dlst_clear(&sor);

@@ -20,25 +20,25 @@ void	ft_swap(t_dlst *stack)
 	}
 	third = stack->head->next->next;
 	stack->head = second;
-	second->previous = stack->tail;
+	second->prev = stack->tail;
 	second->next = first;
-	first->previous = second;
+	first->prev = second;
 	first->next = third;
-	third->previous = first;
+	third->prev = first;
 	stack->tail->next = second;
 }
 
 void	ft_rotate(t_dlst *stack)
 {
 	stack->head = stack->head->next;
-	stack->tail = stack->head->previous;
+	stack->tail = stack->head->prev;
 
 }
 
 void	ft_rotate_rev(t_dlst *stack)
 {
 	stack->head = stack->tail;
-	stack->tail = stack->head->previous;
+	stack->tail = stack->head->prev;
 }
 
 bool	ft_push(t_dlst *from, t_dlst *to)

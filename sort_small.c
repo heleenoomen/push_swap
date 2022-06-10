@@ -1,136 +1,136 @@
 #include"push_swap.h"
 
-void	insert_max(t_dlst *stack_a, t_dlst *stack_b, int *ops)
+void	insa_max(t_dlst *a, t_dlst *b, int *ops)
 {
 	int	count;
 	int	mid;
 	t_dnode *i;
 
 	count = 0;
-	mid = stack_a->size / 2;
-	i = stack_a->tail;
-	while (count <= mid && i->number != stack_a->max)
+	mid = a->size / 2;
+	i = a->tail;
+	while (count <= mid && i->nb != a->max)
 	{
-		i = i->previous;
+		i = i->prev;
 		count++;
 	}
 	if (count <= mid)
 	{
-		while (stack_a->tail->number != stack_a->max)
-			ft_rra(stack_a, ops);
+		while (a->tail->nb != a->max)
+			ft_rra(a, ops);
 	}
 	else
 	{
-		while (stack_a->tail->number != stack_a->max)
-			ft_ra(stack_a, ops);
+		while (a->tail->nb != a->max)
+			ft_ra(a, ops);
 	}
-	ft_pa(stack_a, stack_b, ops);
+	ft_pa(a, b, ops);
 }
 
-void	insert_min(t_dlst *stack_a, t_dlst *stack_b, int *ops)
+void	insa_min(t_dlst *a, t_dlst *b, int *ops)
 {
 	int	count;
 	int	mid;
 	t_dnode *i;
 
 	count = 0;
-	mid = stack_a->size / 2;
-	i = stack_a->head;
-	while (count <= mid && i->number != stack_a->min)
+	mid = a->size / 2;
+	i = a->head;
+	while (count <= mid && i->nb != a->min)
 	{
 		i = i->next;
 		count++;
 	}
 	if (count <= mid)
 	{
-		while (stack_a->head->number != stack_a->min)
-			ft_ra(stack_a, ops);
+		while (a->head->nb != a->min)
+			ft_ra(a, ops);
 	}
 	else
 	{
-		while (stack_a->head->number != stack_a->min)
-			ft_rra(stack_a, ops);
+		while (a->head->nb != a->min)
+			ft_rra(a, ops);
 	}
-	ft_pa(stack_a, stack_b, ops);
+	ft_pa(a, b, ops);
 }
 
-void	insert_inbetw(t_dlst *stack_a, t_dlst *stack_b, int *ops)
+void	insa_inbetw(t_dlst *a, t_dlst *b, int *ops)
 {
 	int	v;
 	int	count;
 	int	mid;
 	t_dnode *i;
 
-	v = stack_b->head->number;
+	v = b->head->nb;
 	count = 0;
-	mid = stack_a->size / 2;
-	i = stack_a->head;
+	mid = a->size / 2;
+	i = a->head;
 	
-	if (stack_b->size == 1 && v >= i->number && v <= i->next->number)
+	if (b->size == 1 && a->head->nb > b->head->nb && a->head->nb < a->head->next->nb)
 	{
-		ft_pa(stack_a, stack_b, ops);
-		ft_sa(stack_a, ops);
+		ft_pa(a, b, ops);
+		ft_sa(a, ops);
 		return ; 
 	}
-	while (count <= mid && !(v <= i->number && v >= i->previous->number))
+	while (count <= mid && !(v < i->nb && v > i->prev->nb))
 	{
 		count++;
 		i = i->next;
 	}
 	if (count <= mid)
 	{
-		while (!(stack_a->head->number >= v && stack_a->tail->number <= v))
-			ft_ra(stack_a, ops);
+		while (!(a->head->nb > v && a->tail->nb < v))
+			ft_ra(a, ops);
 	}
 	else
 	{
-		while (!(stack_a->head->number >= v && stack_a->tail->number <= v))
-			ft_rra(stack_a, ops);
+		while (!(a->head->nb > v && a->tail->nb < v))
+			ft_rra(a, ops);
 	}
-	ft_pa(stack_a, stack_b, ops);
+	ft_pa(a, b, ops);
 }
 
-void	final_rotation(t_dlst *stack_a, int *ops)
+void	final_rotation(t_dlst *a, int *ops)
 {
 	t_dnode	*i;
 	int		count;
 	int		mid;
 
-	mid = stack_a->size / 2;
+	mid = a->size / 2;
 	count = 0;
-	i = stack_a->head;
-	while (count <= mid && i->number != stack_a->min)
+	i = a->head;
+	while (count <= mid && i->nb != a->min)
 	{
 		count++;
 		i = i->next;
 	}
 	if (count <= mid)
 	{
-		while (stack_a->head->number != stack_a->min)
-			ft_ra(stack_a, ops);
+		while (a->head->nb != a->min)
+			ft_ra(a, ops);
 	}
 	else
 	{
-		while (stack_a->head->number != stack_a->min)
-			ft_rra(stack_a, ops);
+		while (a->head->nb != a->min)
+			ft_rra(a, ops);
 	}
-	while (stack_a->tail->number == stack_a->min)
-		ft_rra(stack_a, ops);
+	while (a->tail->nb == a->min)
+		ft_rra(a, ops);
 }
 
-void	sort_small(t_dlst *stack_a, t_dlst *stack_b, int *ops)
+void	sort_small(t_dlst *a, t_dlst *b, int *ops)
 {
-	while (stack_a->size > 3)
-		ft_pb(stack_a, stack_b, ops);
-	ft_sort_three(stack_a, ops);
-	while (stack_b->size > 0)
+	while (a->size > 3)
+		ft_pb(a, b, ops);
+	ft_sort_three(a, ops);
+	while (b->size > 0)
 	{
-		if (stack_b->head->number > stack_a->max)
-			insert_max(stack_a, stack_b, ops);
-		else if (stack_b->head->number < stack_a->min)
-			insert_min(stack_a, stack_b, ops);
+		if (b->head->nb > a->max)
+			insa_max(a, b, ops);
+		else if (b->head->nb < a->min)
+			insa_min(a, b, ops);
 		else
-			insert_inbetw(stack_a, stack_b, ops);
+			insa_inbetw(a, b, ops);
 	}
-	final_rotation(stack_a, ops);
+	final_rotation(a, ops);
 }

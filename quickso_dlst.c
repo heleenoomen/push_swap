@@ -11,24 +11,24 @@ void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail)
 		return ;
 	i = head;
 	j = tail;
-	v = tail->number;
+	v = tail->nb;
 	while (1)
 	{
-		while (i->number < v && i != tail)
+		while (i->nb < v && i != tail)
 			i = i->next;
-		while (j->number >= v && j != head)
-			j = j->previous;
+		while (j->nb >= v && j != head)
+			j = j->prev;
 		if (i->id >= j->id)
 			break ;
-		temp = i->number;
-		i->number = j->number;
-		j->number = temp;
+		temp = i->nb;
+		i->nb = j->nb;
+		j->nb = temp;
 	}
-	temp = i->number;
-	i->number = v;
-	tail->number = temp;
+	temp = i->nb;
+	i->nb = v;
+	tail->nb = temp;
 	if (i != head)
-		quickso_dlst(stack, head, i->previous);
+		quickso_dlst(stack, head, i->prev);
 	if (i != tail)
 		quickso_dlst(stack, i->next, tail);
 }

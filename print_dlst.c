@@ -14,14 +14,14 @@ void	print_dlst(t_dlst *stack, char *name)
 	}
 	while (i != stack->tail)
 	{
-		ft_printf("\t%i\tid = %i\n", i->number, i->id);
+		ft_printf("\t%i\tid = %i\n", i->nb, i->id);
 		i = i->next;
 	}
-	ft_printf("\t%i\tid = %i\n", i->number, i->id);
-	ft_printf("stack->head->number = %i\n", stack->head->number);
-	ft_printf("stack->tail->number = %i\n", stack->tail->number);
-	ft_printf("stack->head->previous->number = %i\n", stack->head->previous->number);
-	ft_printf("stack->tail->next->number = %i\n", stack->tail->next->number);	
+	ft_printf("\t%i\tid = %i\n", i->nb, i->id);
+	ft_printf("stack->head->nb = %i\n", stack->head->nb);
+	ft_printf("stack->tail->nb = %i\n", stack->tail->nb);
+	ft_printf("stack->head->prev->nb = %i\n", stack->head->prev->nb);
+	ft_printf("stack->tail->next->nb = %i\n", stack->tail->next->nb);
 	ft_printf("-----------------------------\n");
 }
 
@@ -39,14 +39,14 @@ void	print_dlst_rev(t_dlst *stack, char *name)
 	}
 	while (i != stack->head)
 	{
-		ft_printf("\t%i\tid = %i\n", i->number, i->id);
-		i = i->previous;
+		ft_printf("\t%i\tid = %i\n", i->nb, i->id);
+		i = i->prev;
 	}
-	ft_printf("\t%i\tid = %i\n", i->number, i->id);
-	ft_printf("stack->head->number = %i\n", stack->head->number);
-	ft_printf("stack->tail->number = %i\n", stack->tail->number);
-	ft_printf("stack->head->previous->number = %i\n", stack->head->previous->number);
-	ft_printf("stack->tail->next->number = %i\n", stack->tail->next->number);	
+	ft_printf("\t%i\tid = %i\n", i->nb, i->id);
+	ft_printf("stack->head->nb = %i\n", stack->head->nb);
+	ft_printf("stack->tail->nb = %i\n", stack->tail->nb);
+	ft_printf("stack->head->prev->nb = %i\n", stack->head->prev->nb);
+	ft_printf("stack->tail->next->nb = %i\n", stack->tail->next->nb);	
 	ft_printf("-----------------------------\n");
 }
 
@@ -64,10 +64,10 @@ void	print_sorted(t_dlst *stack_a, int *ops)
 	ft_printf("We are sorted:");
 	while (i != stack_a->tail)
 	{
-		ft_printf(" %i,", i->number);
+		ft_printf(" %i,", i->nb);
 		i = i->next;
 	}
-	ft_printf(" %i\n", i->number);
+	ft_printf(" %i\n", i->nb);
 	ft_printf("operations: %i\n", *ops);
 	ft_printf("-------------------------------\n");
 }
@@ -80,13 +80,13 @@ void	print_sorted(t_dlst *stack_a, int *ops)
 // 	i = stack->liss_ptr;
 // 	value = 0;
 // 	ft_printf("------------LISS:--------------\n");
-// 	ft_printf("ofset is at: %i\n", stack->liss_ptr->number);
+// 	ft_printf("ofset is at: %i\n", stack->liss_ptr->nb);
 // 	while (1)
 // 	{
-// 		if (i->number >= value)
+// 		if (i->nb >= value)
 // 		{
-// 			ft_printf("%i\n", i->number);
-// 			value = i->number;
+// 			ft_printf("%i\n", i->nb);
+// 			value = i->nb;
 // 		}
 // 		i = i->next;
 // 		if (i == stack->liss_ptr)
@@ -98,10 +98,10 @@ void	print_sorted(t_dlst *stack_a, int *ops)
 void	print_quickso_dlst(t_dnode *head, t_dnode *tail, t_dnode *i, t_dnode *j)
 {
 	ft_printf("-------------------------------\n");
-	ft_printf("head->number = %i\thead->id = %i\n", head->number, head->id);
-	ft_printf("tail->number = %i\ttail->id = %i\n", tail->number, tail->id);
-	ft_printf("i->number = %i\t\ti->id = %i\n", i->number, i->id);
-	ft_printf("j->number = %i\t\tj->id = %i\n", j->number, j->id);
+	ft_printf("head->nb = %i\thead->id = %i\n", head->nb, head->id);
+	ft_printf("tail->nb = %i\ttail->id = %i\n", tail->nb, tail->id);
+	ft_printf("i->nb = %i\t\ti->id = %i\n", i->nb, i->id);
+	ft_printf("j->nb = %i\t\tj->id = %i\n", j->nb, j->id);
 	ft_printf("-------------------------------\n");
 }
 
@@ -126,11 +126,11 @@ void	print_stacks(t_dlst *a, t_dlst *b)
 	{
 		while (i != a->tail && j != b->tail)
 		{
-			ft_printf("\t%i\t%i\n", i->number, j->number);
+			ft_printf("\t%i\t%i\n", i->nb, j->nb);
 			i = i->next;
 			j = j->next;
 		}
-		ft_printf("\t%i\t%i\n", i->number, j->number);
+		ft_printf("\t%i\t%i\n", i->nb, j->nb);
 	}
 	if (pad_a)
 	{
@@ -138,20 +138,20 @@ void	print_stacks(t_dlst *a, t_dlst *b)
 		{
 			if (pad_a)
 			{
-				ft_printf("\t\t%i\n", j->number);
+				ft_printf("\t\t%i\n", j->nb);
 				pad_a--;
 				j = j->next;
 			}
 			else
 			{
-				ft_printf("\t%i\t%i\n", i->number, j->number);
+				ft_printf("\t%i\t%i\n", i->nb, j->nb);
 				i = i->next;
 				j = j->next;
 			}
 		}
 		if (!pad_a)
-			ft_printf("\t%i", i->number);
-		ft_printf("\t%i\n", j->number);
+			ft_printf("\t%i", i->nb);
+		ft_printf("\t%i\n", j->nb);
 	}
 	if (pad_b)
 		{
@@ -159,20 +159,20 @@ void	print_stacks(t_dlst *a, t_dlst *b)
 		{
 			if (pad_b)
 			{
-				ft_printf("\t%i\n", i->number);
+				ft_printf("\t%i\n", i->nb);
 				pad_b--;
 				i = i->next;
 			}
 			else
 			{
-				ft_printf("\t%i\t%i\n", i->number, j->number);
+				ft_printf("\t%i\t%i\n", i->nb, j->nb);
 				i = i->next;
 				j = j->next;
 			}
 		}
-		ft_printf("\t%i", i->number);
+		ft_printf("\t%i", i->nb);
 		if (!pad_b)
-			ft_printf("\t%i", j->number);
+			ft_printf("\t%i", j->nb);
 		ft_printf("\n");
 	}
 	ft_printf("-------------------------------\n");
