@@ -136,7 +136,7 @@ int	main(int argc, char **argv)
 	t_dlst	sor;
 	int		ops;
 
-	atexit(check);
+	//atexit(check);
 	if (argc == 1)
 		return (0);
 	ops = 0;
@@ -145,7 +145,7 @@ int	main(int argc, char **argv)
 	//print_dlst(&sor, "sor");
 	check_dupl(&a, &sor);
 	ft_sort(&a, &sor, &ops);
-	print_sorted(&a, &ops);
+	//print_sorted(&a, &ops);
 	dlst_clear(&a);
 	//dlst_clear(&b);
 	dlst_clear(&sor);

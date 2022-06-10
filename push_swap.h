@@ -28,15 +28,15 @@ typedef struct s_dlst
 typedef struct s_p
 {
 	int		nb;
-	bool	top;
+	int		ops;
 }			t_p;
 
 # define MIN_INT	-2147483648
-# define MAX_INT	2147483648
+# define MAX_INT	2147483647
 
-# define pr_sb	print_dlst(stack_b, "stack b")
-# define pr_sa	print_dlst(stack_a, "stack a")
-# define ps		print_stacks(stack_a, stack_b)
+# define pr_sb	print_dlst(b, "stack b")
+# define pr_sa	print_dlst(a, "stack a")
+# define ps		print_stacks(a, b)
 
 //push_swap.c
 bool	ft_strisnumeric(const char *s);
@@ -87,9 +87,6 @@ void	print_liss(t_dlst *stack);
 void	print_quickso_dlst(t_dnode *head, t_dnode *tail, t_dnode *i, t_dnode *j);
 void	print_stacks(t_dlst *a, t_dlst *b);
 
-//liss.c
-void	liss(t_dlst *stack);
-
 //quickso_dlst.c
 void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail);
 
@@ -101,6 +98,11 @@ void	ft_pb_sort(t_dlst *stack_a, t_dlst *stack_b, int *ops);
 void	ins_back(t_dlst *stack_a, t_dlst *stack_b, int *ops);
 void	sort_small_sortb(t_dlst *stack_a, t_dlst *stack_b, int *ops);
 
+//sort_big.c
+void	sort_big(t_dlst *a, t_dlst *b, t_dlst *sor, int *ops);
+
+//calc_ops.c
+void	pb_calc_ops(t_dlst *a, t_dlst *b, int lim, t_p *parms);
 
 
 

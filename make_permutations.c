@@ -23,7 +23,10 @@ int		ft_factorial(int nbr)
 int	main(void)
 {
 	int	nbr;
+	int **arr;
 
 	nbr = ft_factorial(4);
+	arr = malloc(nbr * sizeof(int *));
 	printf("%i\n", nbr);
+	free(arr);
 }

@@ -44,11 +44,10 @@ void	ft_sort(t_dlst *a, t_dlst *sor, int *ops)
 		return ;
 	if (a->size == 2)
 		ft_sort_two(a, ops);
-	else //if (a->size < 21)
+	else if (a->size < 21)
 		sort_small(a, &b, ops);
-	//else
-		//sort_big(a, &b, sor, ops);
-	sor->size = 15;
+	else
+		sort_big(a, &b, sor, ops);
 	dlst_clear(&b);
 }
 

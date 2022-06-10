@@ -1,47 +1,80 @@
 #include"push_swap.h"
 
-void	insa_max(t_dlst *a, t_dlst *b, int *ops)
+bool	ra_is_faster_max(t_dlst *stack)
 {
-	int	count;
-	int	mid;
-	t_dnode *i;
+	int		count;
+	int		mid;
+	t_dnode	*i;
 
 	count = 0;
-	mid = a->size / 2;
-	i = a->tail;
-	while (count <= mid && i->nb != a->max)
+	mid = stack->size / 2;
+	i = stack->head;
+	while (count <= mid)
 	{
-		i = i->prev;
+		if (i->prev->nb == stack->max)
+			return (1);
+		i = i->next;
 		count++;
 	}
-	if (count <= mid)
+	return (count <= mid);
+}
+
+bool	ra_is_faster_min(t_dlst *stack)
+{
+	int		count;
+	int		mid;
+	t_dnode	*i;
+
+	count = 0;
+	mid = stack->size / 2;
+	i = stack->head;
+	while (count <= mid)
+	{
+		if (i->nb == stack->min)
+			return (1);
+		i = i->next;
+		count++;
+	}
+	return (count <= mid);
+}
+
+bool	ra_is_faster_inbetw(t_dlst *stack, int nb)
+{
+	int		count;
+	int		mid;
+	t_dnode	*i;
+
+	count = 0;
+	mid = stack->size / 2;
+	i = stack->head;
+	while (count <= mid)
+	{
+		if (nb < i->nb && nb > i->prev->nb)
+			return (1);
+		i = i->next;
+		count++;
+	}
+	return (count <= mid);
+}
+
+void	insa_max(t_dlst *a, t_dlst *b, int *ops)
+{
+	if (ra_is_faster_max(a))
 	{
 		while (a->tail->nb != a->max)
-			ft_rra(a, ops);
+			ft_ra(a, ops);
 	}
 	else
 	{
 		while (a->tail->nb != a->max)
-			ft_ra(a, ops);
+			ft_rra(a, ops);
 	}
 	ft_pa(a, b, ops);
 }
 
 void	insa_min(t_dlst *a, t_dlst *b, int *ops)
 {
-	int	count;
-	int	mid;
-	t_dnode *i;
-
-	count = 0;
-	mid = a->size / 2;
-	i = a->head;
-	while (count <= mid && i->nb != a->min)
-	{
-		i = i->next;
-		count++;
-	}
-	if (count <= mid)
+	if (ra_is_faster_min(a))
 	{
 		while (a->head->nb != a->min)
 			ft_ra(a, ops);
@@ -57,27 +90,16 @@ void	insa_min(t_dlst *a, t_dlst *b, int *ops)
 void	insa_inbetw(t_dlst *a, t_dlst *b, int *ops)
 {
 	int	v;
-	int	count;
-	int	mid;
-	t_dnode *i;
 
 	v = b->head->nb;
-	count = 0;
-	mid = a->size / 2;
-	i = a->head;
-	
-	if (b->size == 1 && a->head->nb > b->head->nb && a->head->nb < a->head->next->nb)
+	if ((b->size == 1 && v >= a->head->nb && v <= a->head->next->nb) ||
+		(b->head->nb > a->head->nb && b->head->nb < a->head->next->nb &&
+		b->head->next->nb < b->head->nb))
 	{
 		ft_pa(a, b, ops);
 		ft_sa(a, ops);
-		return ; 
 	}
-	while (count <= mid && !(v < i->nb && v > i->prev->nb))
-	{
-		count++;
-		i = i->next;
-	}
-	if (count <= mid)
+	else if (ra_is_faster_inbetw(a, v))
 	{
 		while (!(a->head->nb > v && a->tail->nb < v))
 			ft_ra(a, ops);

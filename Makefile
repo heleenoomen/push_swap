@@ -6,7 +6,7 @@
 #    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 15:22:54 by hoomen            #+#    #+#              #
-#    Updated: 2022/06/09 17:06:12 by hoomen           ###   ########.fr        #
+#    Updated: 2022/06/10 19:19:11 by hoomen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGS 	=	-Wall -Wextra -Werror
 # file variables
 NAME			= push_swap
 # source files
-MAIN			= push_swap dlst_basics print_dlst sort operations quickso_dlst sort_small sort_small_sortb
+MAIN			= push_swap dlst_basics print_dlst sort operations quickso_dlst sort_small sort_big calc_ops
 LIBFT			= atoi isdigit strchr strlen split calloc memcpy
 FT_PRINTF 		= convert initmodifiers modifiers pad parse printchar printf printint printnbr printstr putnbrpf
 # add prefix and suffix to filenames
@@ -29,7 +29,7 @@ LIBFTOBJS		= $(LIBFTFILES:.c=.o)
 FT_PRINTFOBJS 	= $(FT_PRINTFFILES:.c=.o)
 GNLOBJS			= $(GNLFILES:.c=.o)
 
-all : $(NAME)
+all : $(NAME) clean
 
 $(NAME): $(MAINOBJS) $(LIBFTOBJS) $(FT_PRINTFOBJS)
 	@$(CC) $(FLAGS) $(MAINOBJS) $(LIBFTOBJS) $(FT_PRINTFOBJS) -o $(NAME)
