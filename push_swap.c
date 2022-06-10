@@ -59,7 +59,7 @@ char	**ft_split_shift(char *s, char c)
 }
 
 
-int	make_stack_a(int argc, char **argv, t_dlst *stack_a)
+void	make_a(int argc, char **argv, t_dlst *a)
 {
 	int	i;
 	int	is_single;
@@ -82,21 +82,21 @@ int	make_stack_a(int argc, char **argv, t_dlst *stack_a)
 	else
 		is_single = 0;
 	i = 1;
+	dlst_init(a);
 	while (argv[i] != NULL)
 	{
 		if (!ft_strisnumeric(argv[i]))
 		{
 			ft_printf("Error\n");
-			dlst_clear(stack_a);
+			dlst_clear(a);
 			exit(0);
 		}
-		dlst_addnew(argv[i], stack_a);
-		stack_a->tail->id = i - 1;
+		dlst_addnew(argv[i], a);
+		a->tail->id = i - 1;
 		i++;
 	}
 	if (is_single)
 		ft_free_argv_ps(argv);
-	return (argc);
 }
 
 void	check(void)
@@ -104,53 +104,50 @@ void	check(void)
 	system("leaks push_swap");
 }
 
-void	check_for_duplicates(t_dlst *stack_a)
+void	check_dupl(t_dlst *a, t_dlst *sor)
 {
-	t_dlst	*dup;
 	t_dnode	*i;
 	
-	dup = dlst_dup(stack_a);
-	quickso_dlst(dup, dup->head, dup->tail);
-	i = dup->head;
+	i = sor->head;
 	while (1)
 	{
 		if (i->number == i->next->number)
 		{
-			dlst_clear(dup);
-			dlst_clear(stack_a);
-			free(dup);
+			dlst_clear(sor);
+			dlst_clear(a);
 			ft_printf("Error\n");
 			exit(0);
 		}
 		i = i->next;
-		if (i == dup->head)
+		if (i == sor->head)
 			break;
 	}
-	dlst_clear(dup);
-	free(dup);
+}
+
+void	make_sor(t_dlst *a, t_dlst *sor)
+{
+	dlst_dup(a, sor);
+	quickso_dlst(sor, sor->head, sor->tail);
 }
 
 int	main(int argc, char **argv)
 {
-	t_dlst	stack_a;
-	t_dlst	stack_b;
+	t_dlst	a;
+	t_dlst	sor;
 	int		ops;
 
-	//atexit(check);
+	atexit(check);
 	if (argc == 1)
 		return (0);
 	ops = 0;
-	dlst_init(&stack_a);
-	dlst_init(&stack_b);
-	argc = make_stack_a(argc, argv, &stack_a);
-	check_for_duplicates(&stack_a);
-	//check_usage(argc, argv, &stack_a);
-	//print_dlst(&stack_a, "stack_a;");
-	//print_dlst_rev(&stack_a, "stack_a reverse:");
-	ft_sort_v2(argc, &stack_a, &stack_b, &ops);
-	print_sorted(&stack_a, &ops);
-	//print_dlst_rev(&stack_a, "stack_a reverse");
-	dlst_clear(&stack_a);
-	dlst_clear(&stack_b);
+	make_a(argc, argv, &a);
+	make_sor(&a, &sor);
+	print_dlst(&sor, "sor");
+	check_dupl(&a, &sor);
+	ft_sort(&a, &sor, &ops);
+	//print_sorted(&a, &ops);
+	dlst_clear(&a);
+	//dlst_clear(&b);
+	dlst_clear(&sor);
 	return (0);
 }

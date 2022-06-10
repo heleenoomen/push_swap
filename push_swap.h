@@ -45,14 +45,12 @@ void	dlst_clear(t_dlst *stack);
 void	reset_min(t_dlst *stack);
 void	reset_max(t_dlst *stack);
 t_dnode	*dlst_detachfirst(t_dlst *stack);
-t_dlst	*dlst_dup(t_dlst *dlst);
+void	dlst_dup(t_dlst *source, t_dlst *dest);
 
 //sort.c
 void	ft_sort_two(t_dlst *stack_a, int *ops);
 void	ft_sort_three(t_dlst *stack_a, int *ops);
-void	ft_sort_four(t_dlst *stack_a, t_dlst *stack_b, int *ops);
-void	ft_sort_five(t_dlst *stack_a, t_dlst *stack_b, int *ops);
-void	ft_sort(int argc, t_dlst *stack_a, t_dlst *stack_b, int *ops);
+void	ft_sort(t_dlst *stack_a, t_dlst *sor, int *ops);
 void	ft_sort_v2(int argc, t_dlst *stack_a, t_dlst *stack_b, int *ops);
 
 //sort_small.c
