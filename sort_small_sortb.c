@@ -22,12 +22,9 @@ bool	closer_to_top(t_dlst *stack, int nbr) // count the amount of pushes before 
 
 void	insert_rb(t_dlst *stack_a, t_dlst *stack_b, int *ops)
 {
-	t_dnode	*i;
-
-	i = stack_b->head->next->next;
 	while (1)
 	{
-		if (stack_a->head->number < i->number)
+		if (stack_a->head->number < stack_b->head->number)
 			break ;
 		ft_rb(stack_b, ops);
 	}
@@ -42,7 +39,7 @@ void	insert_rrb(t_dlst *stack_a, t_dlst *stack_b, int *ops)
 	
 	nbr = stack_a->head->number;
 	ft_rrb(stack_b, ops);
-	while (nbr < stack_b->head->number)
+	while (nbr < stack_b->tail->number)
 		ft_rrb(stack_b, ops);
 	ft_pb(stack_a, stack_b, ops);
 	while (stack_b->head->number != stack_b->min)
@@ -91,9 +88,11 @@ bool	min_closer_to_top(t_dlst *stack)
 
 void	sort_small_sortb(t_dlst *stack_a, t_dlst *stack_b, int *ops)
 {
+	int	count;
+	count = 0;
 	while (stack_a->size > 3)
-		ft_pb_sort(stack_a, stack_b, ops);  // this part is functional
-	ft_sort_three(stack_a, ops); // this is functional
+		ft_pb_sort(stack_a, stack_b, ops);
+	ft_sort_three(stack_a, ops);
 	while (stack_b->size)
 		ft_pb_sort(stack_b, stack_a, ops);
 	//ins_back(stack_a, stack_b, ops);

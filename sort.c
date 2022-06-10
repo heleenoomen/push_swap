@@ -185,9 +185,10 @@ void	ft_sort_v2(int argc, t_dlst *stack_a, t_dlst *stack_b, int *ops)
 	if (argc == 3)
 		ft_sort_two(stack_a, ops);
 	else //if (argc < 8)
-		sort_small(stack_a, stack_b, ops);
-	//NB: sort_small works better for values t/m 10 !
-	//NB: sort_small gets into infinite loop sometimes (not always...)
-	//NB: sort_small goes in infinite loop with: 3 7 9 -4 17 23 48 -6 17; !!!
-	//
+		sort_small_sortb(stack_a, stack_b, ops);
 }
+
+//comparison:
+// numbers:		ops sort_small		ops. sortb
+// 20			74					134
+// 100			1580				2869

@@ -17,17 +17,16 @@ void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail)
 		while (i->number < v && i != tail)
 			i = i->next;
 		while (j->number >= v && j != head)
-			j = j->next;
+			j = j->previous;
 		if (i->id >= j->id)
 			break ;
 		temp = i->number;
 		i->number = j->number;
-		j->number = i->number;
+		j->number = temp;
 	}
 	temp = i->number;
 	i->number = v;
 	tail->number = temp;
-	//print_quickso_dlst(head, tail, i, j);
 	if (i != head)
 		quickso_dlst(stack, head, i->previous);
 	if (i != tail)
