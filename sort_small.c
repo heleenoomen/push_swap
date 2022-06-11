@@ -92,12 +92,11 @@ void	insa_inbetw(t_dlst *a, t_dlst *b, int *ops)
 	int	v;
 
 	v = b->head->nb;
-	if ((b->size == 1 && v >= a->head->nb && v <= a->head->next->nb) ||
-		(b->head->nb > a->head->nb && b->head->nb < a->head->next->nb &&
-		b->head->next->nb < b->head->nb))
+	if ((b->size == 1 && v >= a->head->nb && v <= a->head->next->nb))
 	{
 		ft_pa(a, b, ops);
 		ft_sa(a, ops);
+		return ;
 	}
 	else if (ra_is_faster_inbetw(a, v))
 	{

@@ -38,8 +38,8 @@ typedef struct s_p
 # define pr_sa	print_dlst(a, "stack a")
 # define ps		print_stacks(a, b)
 
-# define PORTION 20
-// for 100 items, 10 is optimal  (950-1150 ops)
+# define PORTION 12
+// for 100 items, 12 is optimal  (850-950 ops)
 // for 500 items, 20 is optimal  (10.000 - 11.500 ops)
 //push_swap.c
 bool	ft_strisnumeric(const char *s);
@@ -92,11 +92,13 @@ void	print_stacks(t_dlst *a, t_dlst *b);
 
 //quickso_dlst.c
 void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail);
+void	simplify_sequence(t_dlst *a, t_dlst *sor);
 
 //sort_big.c
 void	sort_big(t_dlst *a, t_dlst *b, t_dlst *sor, int *ops);
 
-
+//pb_sort.c
+void	pb_portion_sort(t_dlst *a, t_dlst *b, int lim, int *ops);
 
 
 #endif

@@ -32,3 +32,34 @@ void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail)
 	if (i != tail)
 		quickso_dlst(stack, i->next, tail);
 }
+
+void	simplify_sequence(t_dlst *a, t_dlst *sor)
+{
+	t_dnode *i;
+	t_dnode *j;
+	int		id;
+	int		nb;
+
+	j = sor->head;
+	while (1)
+	{
+		nb = j->nb;
+		id = j->id;
+		i = a->head;
+		while (1)
+		{
+			if (i->nb == nb && i->id != -1)
+			{
+				i->nb = id;
+				i->id = -1;
+				break ;
+			}
+			i = i->next;
+		}
+		j = j->next;
+		if (j == sor->head)
+			break ;
+	}
+	a->max = a->size - 1;
+	a->min = 0;
+}

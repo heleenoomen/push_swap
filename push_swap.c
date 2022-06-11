@@ -144,8 +144,10 @@ int	main(int argc, char **argv)
 	make_sor(&a, &sor);
 	//print_dlst(&sor, "sor");
 	check_dupl(&a, &sor);
+	simplify_sequence(&a, &sor);
+	//print_dlst(&a, "stack a");
 	ft_sort(&a, &sor, &ops);
-	//print_sorted(&a, &ops);
+	print_sorted(&a, &ops);
 	dlst_clear(&a);
 	//dlst_clear(&b);
 	dlst_clear(&sor);
