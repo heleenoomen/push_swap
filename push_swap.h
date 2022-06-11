@@ -29,6 +29,8 @@ typedef struct s_p
 {
 	int		nb;
 	int		ops;
+	bool	ra;
+	bool	rb;
 }			t_p;
 
 # define MIN_INT	-2147483648
