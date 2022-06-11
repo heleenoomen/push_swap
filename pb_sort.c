@@ -1,6 +1,6 @@
 #include"push_swap.h"
 
-static void	pushb_sort_top(t_dlst *a, t_p *parms, int lim)
+static void	pushb_sort_top(t_dlst *a, t_p *parms, int lim)//, int count)
 {
 	t_dnode	*i;
 	int		mid;
@@ -15,7 +15,7 @@ static void	pushb_sort_top(t_dlst *a, t_p *parms, int lim)
 	{
 		if (i->nb < lim)
 		{
-			new_ops = steps + i->nb;
+			new_ops = steps + ((i->nb - a->min));// * (PORTION - count));
 			if (new_ops < parms->ops)
 			{
 				parms->ops = new_ops;
@@ -27,7 +27,7 @@ static void	pushb_sort_top(t_dlst *a, t_p *parms, int lim)
 	}
 }
 
-static void	pushb_sort_bottom(t_dlst *a, t_p *parms, int lim)
+static void	pushb_sort_bottom(t_dlst *a, t_p *parms, int lim)//, int count)
 {
 	t_dnode	*i;
 	int		mid;
@@ -42,7 +42,7 @@ static void	pushb_sort_bottom(t_dlst *a, t_p *parms, int lim)
 	{
 		if (i->nb < lim)
 		{
-			new_ops = steps + i->nb;
+			new_ops = steps + ((i->nb - a->min));// * (PORTION - count));
 			if (new_ops < parms->ops)
 			{
 				parms->ops = new_ops;
@@ -54,13 +54,13 @@ static void	pushb_sort_bottom(t_dlst *a, t_p *parms, int lim)
 	}
 }
 
-static bool	r_faster(t_dlst *a, int lim, int *nb)
+static bool	r_faster(t_dlst *a, int lim, int *nb)//, int count)
 {
 	t_p	top;
 	t_p bottom;
 
-	pushb_sort_top(a, &top, lim);
-	pushb_sort_bottom(a, &bottom, lim);
+	pushb_sort_top(a, &top, lim);//, count);
+	pushb_sort_bottom(a, &bottom, lim);//, count);
 	if (top.ops <= bottom.ops)
 		*nb = top.nb;
 	else
@@ -88,7 +88,7 @@ void	pb_portion_sort(t_dlst *a, t_dlst *b, int lim, int *ops)
 	count = 0;
 	while (count < PORTION)
 	{
-		if (r_faster(a, lim, &nb))
+		if (r_faster(a, lim, &nb))//, count))
 			r_nb_to_top(a, nb, ops);
 		else
 			rr_nb_to_top(a, nb, ops);
