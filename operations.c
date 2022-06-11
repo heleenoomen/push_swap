@@ -52,59 +52,59 @@ bool	ft_push(t_dlst *from, t_dlst *to)
 	return (0);
 }
 
-void	ft_sa(t_dlst *stack_a, int *ops)
+void	ft_sa(t_dlst *a, int *ops)
 {
-	ft_swap(stack_a);
+	ft_swap(a);
 	ft_printf("sa\n");
 	(*ops)++;
 }
 
-void	ft_sb(t_dlst *stack_b, int *ops)
+void	ft_sb(t_dlst *b, int *ops)
 {
-	ft_swap(stack_b);
+	ft_swap(b);
 	ft_printf("sb\n");
 	(*ops)++;
 }
 
-void	ft_ra(t_dlst *stack_a, int *ops)
+void	ft_ra(t_dlst *a, int *ops)
 {
-	ft_rotate(stack_a);
+	ft_rotate(a);
 	ft_printf("ra\n");
 	(*ops)++;
 }
 
-void	ft_rb(t_dlst *stack_b, int *ops)
+void	ft_rb(t_dlst *b, int *ops)
 {
-	ft_rotate(stack_b);
+	ft_rotate(b);
 	ft_printf("rb\n");
 	(*ops)++;
 }
 
-void	ft_rra(t_dlst *stack_a, int *ops)
+void	ft_rra(t_dlst *a, int *ops)
 {
-	ft_rotate_rev(stack_a);
+	ft_rotate_rev(a);
 	ft_printf("rra\n");
 	(*ops)++;
 }
 
-void	ft_rrb(t_dlst *stack_b, int *ops)
+void	ft_rrb(t_dlst *b, int *ops)
 {
-	ft_rotate_rev(stack_b);
+	ft_rotate_rev(b);
 	ft_printf("rrb\n");
 	(*ops)++;
 }
 
 
-void	ft_pb(t_dlst *stack_a, t_dlst *stack_b, int *ops)
+void	ft_pb(t_dlst *a, t_dlst *b, int *ops)
 {
-	ft_push(stack_a, stack_b);
+	ft_push(a, b);
 	ft_printf("pb\n");
 	(*ops)++;
 }
 
-void	ft_pa(t_dlst *stack_a, t_dlst *stack_b, int *ops)
+void	ft_pa(t_dlst *a, t_dlst *b, int *ops)
 {
-	ft_push(stack_b, stack_a);
+	ft_push(b, a);
 	ft_printf("pa\n");
 	(*ops)++;
 }

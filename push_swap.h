@@ -38,6 +38,8 @@ typedef struct s_p
 # define pr_sa	print_dlst(a, "stack a")
 # define ps		print_stacks(a, b)
 
+# define PORTION 7
+
 //push_swap.c
 bool	ft_strisnumeric(const char *s);
 void	check_usage(int argc, char **argv, t_dlst *stack_a);
@@ -90,19 +92,8 @@ void	print_stacks(t_dlst *a, t_dlst *b);
 //quickso_dlst.c
 void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail);
 
-//sort_small_sortb.c
-bool	closer_to_top(t_dlst *stack, int nbr);
-void	insert_rb(t_dlst *stack_a, t_dlst *stack_b, int *ops);
-void	insert_rrb(t_dlst *stack_a, t_dlst *stack_b, int *ops);
-void	ft_pb_sort(t_dlst *stack_a, t_dlst *stack_b, int *ops);
-void	ins_back(t_dlst *stack_a, t_dlst *stack_b, int *ops);
-void	sort_small_sortb(t_dlst *stack_a, t_dlst *stack_b, int *ops);
-
 //sort_big.c
 void	sort_big(t_dlst *a, t_dlst *b, t_dlst *sor, int *ops);
-
-//calc_ops.c
-void	pb_calc_ops(t_dlst *a, t_dlst *b, int lim, t_p *parms);
 
 
 

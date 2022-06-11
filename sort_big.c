@@ -1,33 +1,86 @@
 #include"push_swap.h"
 
-void	pb_sort(t_dlst *a, t_dlst *b, int nb, int *ops)
+bool	r_is_faster(t_dlst *stack, int lim)
 {
-	if (nb > b->max)
-		insb_max(a, b, ops);
-	else if (nb < b->max)
-		insb_min(a, b, ops);
-	else
-		insb_inbetw(a, b, nb, ops);
+	t_dnode	*i;
+	int		mid;
+	int		top;
+	int		bottom;
+	
+	top = 0;
+	bottom = 1;
+	mid = stack->size / 2;
+	i = stack->head;
+	while (top <= mid)
+	{
+		if (i->nb < lim)
+			break ;
+		i = i->next;
+		top++;
+	}
+	i = stack->tail;
+	while (bottom <= (mid + 1))
+	{
+		if (i->nb < lim)
+			break ;
+		i = i->prev;
+		bottom++;
+	}
+	return (top <= bottom);
 }
 
-void	sort_portion(t_dlst *a, t_dlst *b, int lim, int *ops)
+void	r_nb_to_top(t_dlst *a, int lim, int *ops)
 {
-	int	count;
-	t_p	parms;
+	while (a->head->nb >= lim)
+		ft_ra(a, ops);
+}
+
+void	rr_nb_to_top(t_dlst *a, int lim, int *ops)
+{
+	while (a->head->nb >= lim)
+		ft_rra(a, ops);
+}
+
+void	pb_portion(t_dlst *a, t_dlst *b, int lim, int *ops)
+{
+	int		count;
 
 	count = 0;
-	while (count < 10)
+	while (count < PORTION)
 	{
-		pb_calc_ops(a, b, lim, &parms);
-		ft_printf("---------------------------\n");
-		ft_printf("lim = %i\n", lim);
-		ft_printf("parms.num = %i\n", parms.nb);
-		ft_printf("parms.ops = %i\n", parms.ops);
-		rot_nb_up(a, parms.nb);
-		pb_sort(a, b, parms.nb, ops);
+		if (r_is_faster(a, lim))
+			r_nb_to_top(a, lim, ops);
+		else
+			rr_nb_to_top(a, lim, ops);
+		ft_pb(a, b, ops);
 		count++;
 	}
-	(*ops)++;
+}
+
+void	ft_pa_sort(t_dlst *a, t_dlst *b, int *ops)
+{
+	int		rotations;
+
+	rotations = 0;
+	while (1)
+	{
+		if (b->head->nb == b->max)
+		{
+			ft_pa(a, b, ops);
+			if (b->size == 0)
+				break ;
+			while (rotations)
+			{
+				ft_rrb(b, ops);
+				rotations--;
+			}
+		}
+		else
+		{
+			ft_rb(b, ops);
+			rotations++;
+		}
+	}
 }
 
 void	sort_big(t_dlst *a, t_dlst *b, t_dlst *sor, int *ops)
@@ -39,18 +92,19 @@ void	sort_big(t_dlst *a, t_dlst *b, t_dlst *sor, int *ops)
 	p = 0;
 	while (1)
 	{
-		if (p == 10)
+		if (p == PORTION)
 		{
-			sort_portion(a, b, i->nb, ops);
+			pb_portion(a, b, i->nb, ops);
 			p = 0;
 		}
 		i = i->next;
 		p++;
 		if (i == sor->head)
 		{
-			if (p > 1)
-				sort_portion(a, b, i->prev->nb, ops);
-			break ;
+			while (a->size)
+				ft_pb(a, b, ops);
+			break; ;
 		}
 	}
+	ft_pa_sort(a, b, ops);
 }

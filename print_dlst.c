@@ -151,7 +151,7 @@ void	print_stacks(t_dlst *a, t_dlst *b)
 		}
 		if (!pad_a)
 			ft_printf("\t%i", i->nb);
-		ft_printf("\t%i\n", j->nb);
+		ft_printf("\t\t%i\n", j->nb);
 	}
 	if (pad_b)
 		{
