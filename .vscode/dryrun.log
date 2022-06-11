@@ -1,4 +1,4 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/hoomen/projects/push_swap'
 cc -Wall -Wextra -Werror -c push_swap.c -o push_swap.o
  
@@ -8,22 +8,26 @@ cc -Wall -Wextra -Werror -c sort.c -o sort.o
 cc -Wall -Wextra -Werror -c operations.c -o operations.o
 cc -Wall -Wextra -Werror -c quickso_dlst.c -o quickso_dlst.o
 cc -Wall -Wextra -Werror -c sort_small.c -o sort_small.o
+ 
 cc -Wall -Wextra -Werror -c sort_big.c -o sort_big.o
 cc -Wall -Wextra -Werror -c libft/ft_atoi.c -o libft/ft_atoi.o
 cc -Wall -Wextra -Werror -c libft/ft_isdigit.c -o libft/ft_isdigit.o
 cc -Wall -Wextra -Werror -c libft/ft_strchr.c -o libft/ft_strchr.o
 cc -Wall -Wextra -Werror -c libft/ft_strlen.c -o libft/ft_strlen.o
 cc -Wall -Wextra -Werror -c libft/ft_split.c -o libft/ft_split.o
+ 
 cc -Wall -Wextra -Werror -c libft/ft_calloc.c -o libft/ft_calloc.o
 cc -Wall -Wextra -Werror -c libft/ft_memcpy.c -o libft/ft_memcpy.o
 cc -Wall -Wextra -Werror -c ft_printf/ft_convert.c -o ft_printf/ft_convert.o
 cc -Wall -Wextra -Werror -c ft_printf/ft_initmodifiers.c -o ft_printf/ft_initmodifiers.o
+ 
 cc -Wall -Wextra -Werror -c ft_printf/ft_modifiers.c -o ft_printf/ft_modifiers.o
 cc -Wall -Wextra -Werror -c ft_printf/ft_pad.c -o ft_printf/ft_pad.o
 cc -Wall -Wextra -Werror -c ft_printf/ft_parse.c -o ft_printf/ft_parse.o
 cc -Wall -Wextra -Werror -c ft_printf/ft_printchar.c -o ft_printf/ft_printchar.o
 cc -Wall -Wextra -Werror -c ft_printf/ft_printf.c -o ft_printf/ft_printf.o
 cc -Wall -Wextra -Werror -c ft_printf/ft_printint.c -o ft_printf/ft_printint.o
+ 
 cc -Wall -Wextra -Werror -c ft_printf/ft_printnbr.c -o ft_printf/ft_printnbr.o
 cc -Wall -Wextra -Werror -c ft_printf/ft_printstr.c -o ft_printf/ft_printstr.o
 cc -Wall -Wextra -Werror -c ft_printf/ft_putnbrpf.c -o ft_printf/ft_putnbrpf.o

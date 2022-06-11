@@ -38,8 +38,9 @@ typedef struct s_p
 # define pr_sa	print_dlst(a, "stack a")
 # define ps		print_stacks(a, b)
 
-# define PORTION 7
-
+# define PORTION 20
+// for 100 items, 10 is optimal  (950-1150 ops)
+// for 500 items, 20 is optimal  (10.000 - 11.500 ops)
 //push_swap.c
 bool	ft_strisnumeric(const char *s);
 void	check_usage(int argc, char **argv, t_dlst *stack_a);

@@ -3,6 +3,7 @@
 bool	r_is_faster(t_dlst *stack, int lim)
 {
 	t_dnode	*i;
+	t_dnode *j;
 	int		mid;
 	int		top;
 	int		bottom;
@@ -18,14 +19,16 @@ bool	r_is_faster(t_dlst *stack, int lim)
 		i = i->next;
 		top++;
 	}
-	i = stack->tail;
+	j = stack->tail;
 	while (bottom <= (mid + 1))
 	{
-		if (i->nb < lim)
+		if (j->nb < lim)
 			break ;
-		i = i->prev;
+		j = j->prev;
 		bottom++;
 	}
+	if (j->nb < i->nb)
+		bottom = bottom - 2;
 	return (top <= bottom);
 }
 
@@ -75,6 +78,8 @@ void	ft_pa_sort(t_dlst *a, t_dlst *b, int *ops)
 				rotations--;
 			}
 		}
+		else if (b->head->next->nb == b->max)
+			ft_sb(b, ops);
 		else
 		{
 			ft_rb(b, ops);
