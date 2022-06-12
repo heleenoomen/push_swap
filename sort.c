@@ -51,24 +51,54 @@
 // 	dlst_clear(&b);
 // }
 
+void	push_to_org(t_dlst *a, t_dlst *b)
+{
+	t_dnode *i;
+	int		mid;
+	int		r;
+
+	while (b->size)
+		ft_p(b, a);
+	i = a->head;
+	mid = a->size / 2;
+	r = 0;
+	while (1)
+	{
+		if (i->nb == a->min)
+			break ;
+		r++;
+		i = i->next;
+	}
+	if (r <= mid)
+	{
+		while (a->head->nb != a->min)
+			ft_r(a);
+		return ;
+	}
+	while (a->head->nb != a->min)
+		ft_rr(a);
+}
 
 void	ft_sort(t_dlst *a)
 {
 	t_dlst	b;
-	int		i;
+	//int		i;
 	
 	dlst_init(&b, 'b');
 	ft_p(a, &b);
 	ft_p(a, &b);
-	ps2;
-	i = 0;
-	while (a->size > 1 && i < 7)
+	if (b.head->nb < b.tail->nb)
+		ft_s(&b);
+	//ps2;
+	//int i = 0;
+	while (a->size)// && i < 87)
 	{
 		push_to_dest(a, &b);
-		i++;
-		ps2;
+		//i++;
+		//ps2;
 	}
-	push_last(a, &b);
-	ps2;
+	//ps2;
+	//push_last_q(a, &b);
+	push_to_org(a, &b);
 	dlst_clear(&b);
 }

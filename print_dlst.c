@@ -117,5 +117,6 @@ void	print_p(t_p *p, char *name)
 	ft_printf("p->ops =\t%i\n", p->ops);
 	ft_printf("p->r =\t\t%i\n", p->r);
 	ft_printf("p->rev =\t%i\n", p->rev);
+	ft_printf("p->r_sim =\t%i\n", p->r_sim);
 	ft_printf("-------------------------------\n");
 }

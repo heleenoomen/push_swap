@@ -79,7 +79,7 @@ void	calc_r_dest_min_rev(t_dlst *b, t_p *dest_new)
 	{
 		if (i->nb == b->max)
 			break ;
-		i = i->next;
+		i = i->prev;
 		r++;
 	}
 	dest_new->r = r;
@@ -104,6 +104,8 @@ void	calc_r_dest_inbtw_fw(t_dlst *b, int nb, int mid, t_p *dest_new)
 	// ft_printf("nb = %i\n", nb);
 	// ft_printf("i->nb = %i\n", i->nb);
 	// ft_printf("i->rev->nb = %i\n", i->prev->nb);
+	// ft_printf("mid = %i\n", mid);
+	// ft_printf("b->size = %i\n", b->size);
 	// ft_printf("mid = %i\n", mid);
 	while (r <= mid)
 	{
@@ -131,7 +133,7 @@ void	calc_r_dest_inbtw_rev(t_dlst *b, int nb, t_p *dest_new)
 	{
 		if (nb > i->nb && nb < i->prev->nb)
 			break ;
-		i = i->next;
+		i = i->prev;
 		r++;
 	}
 	dest_new->r = r;
@@ -264,11 +266,18 @@ void	push_to_dest(t_dlst *a, t_dlst *b)
 		ins_dest(a, b, &org_bot, &dest_bot);
 }
 
-void	push_last(t_dlst *a, t_dlst *b)
+void	push_last_q(t_dlst *a, t_dlst *b)
 {
 	t_p	dest;
+	// t_p	org;
 
+	// org.r = 0;
+	// org.r_sim = 0;
+	// org.rev = 0;
+	//ft_printf("in push_last_q\n");
+	dest.r_sim = 0;
 	calc_r_dest(b, a->head->nb, b->size / 2, &dest);
-	r_dest(b, &dest);
-	ft_p(a, b);
+	//print_p(&dest, "dest");
+	ins_dest(a, b, NULL, &dest);
+	//ft_p(a, b);
 }

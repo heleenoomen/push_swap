@@ -72,7 +72,7 @@ void	ft_sort(t_dlst *a);
 
 //push_to_dest.c
 void	push_to_dest(t_dlst *a, t_dlst *b);
-void	push_last(t_dlst *a, t_dlst *b);
+void	push_last_q(t_dlst *a, t_dlst *b);
 
 //ins_dest.c
 void	ins_dest(t_dlst *a, t_dlst *b, t_p *org, t_p *dest);
