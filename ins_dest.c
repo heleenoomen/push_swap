@@ -2,23 +2,16 @@
 
 void	r_org_fw(t_dlst *a, t_dlst *b, t_p *org, t_p *dest)
 {
-	int	r_sim;
 
-	r_sim = 0;
 	if (dest->rev == -1 || dest->rev == 0)
 	{
-		dest->rev = 0;
-		if (dest->r > org->r)
-			r_sim = dest->r - org->r;
-		else
-			r_sim = org->r - dest->r;
-	}
-	while (r_sim)
-	{
-		ft_r_sim(a, b);
-		r_sim--;
-		dest->r--;
-		org->r--;
+		while (dest->r_sim)
+		{
+			ft_r_sim(a, b);
+			dest->r_sim--;
+			dest->r--;
+			org->r--;
+		}
 	}
 	while (org->r)
 	{
@@ -29,23 +22,15 @@ void	r_org_fw(t_dlst *a, t_dlst *b, t_p *org, t_p *dest)
 
 void	r_org_rev(t_dlst *a, t_dlst *b, t_p *org, t_p *dest)
 {
-	int	rr_sim;
-
-	rr_sim = 0;
 	if (dest->rev == -1 || dest->rev == 1)
 	{
-		dest->rev = 1;
-		if (dest->r > org->r)
-			rr_sim = dest->r - org->r;
-		else
-			rr_sim = org->r - dest->r;
-	}
-	while (rr_sim)
-	{
-		ft_rr_sim(a, b);
-		rr_sim--;
-		dest->r--;
-		org->r--;
+		while (dest->r_sim)
+		{
+			ft_rr_sim(a, b);
+			dest->r--;
+			org->r--;
+			dest->r_sim--;
+		}
 	}
 	while (org->r)
 	{
@@ -64,7 +49,8 @@ void	r_org(t_dlst *a, t_dlst *b, t_p *org, t_p *dest)
 
 void	r_dest(t_dlst *b, t_p *dest)
 {
-	print_p(dest, "dest");
+	int	i = 0;
+	ft_printf("dest->r = %i\n", dest->r);
 	if (!dest->rev)
 	{
 		while (dest->r)
@@ -78,6 +64,9 @@ void	r_dest(t_dlst *b, t_p *dest)
 	{
 		ft_rr(b);
 		dest->r--;
+		i++;
+		if (i > 10)
+			break ;
 	}
 }
 
@@ -86,7 +75,12 @@ void	ins_dest(t_dlst *a, t_dlst *b, t_p *org, t_p *dest)
 	print_p(org, "org");
 	print_p(dest, "dest");
 	r_org(a, b, org, dest);
-	if (a->head->nb > b->max)
+	if (a->head->nb < b->min || a->head->nb > b->max)
+	{
+		if (b->tail->nb != b->max)
+			r_dest(b, dest);
+	}
+	else if (!(a->head->nb > b->head->nb && a->head->nb < b->tail->nb))
 		r_dest(b, dest);
 	ft_p(a, b);
 }

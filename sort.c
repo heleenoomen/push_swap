@@ -60,8 +60,9 @@ void	ft_sort(t_dlst *a)
 	dlst_init(&b, 'b');
 	ft_p(a, &b);
 	ft_p(a, &b);
+	ps2;
 	i = 0;
-	while (a->size > 1 && i < 2)
+	while (a->size > 1 && i < 7)
 	{
 		push_to_dest(a, &b);
 		i++;

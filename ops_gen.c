@@ -40,15 +40,15 @@ void	ft_rotate_rev(t_dlst *stack)
 	stack->tail = stack->head->prev;
 }
 
-bool	ft_push(t_dlst *org, t_dlst *dest)
+void	ft_push(t_dlst *org, t_dlst *dest)
 {
 	t_dnode	*temp;
 
 	temp = dlst_detachfirst(org);
 	if (temp == NULL)
-		return (-1);
+		return ;
 	dlst_addfront(temp, dest);
-	return (0);
+	return ;
 }
 
 void	ft_s(t_dlst *stack)
@@ -84,7 +84,7 @@ void	ft_r_sim(t_dlst *a, t_dlst *b)
 
 void	ft_rr_sim(t_dlst *a, t_dlst *b)
 {
-	ft_rotate(a);
-	ft_rotate(b);
+	ft_rotate_rev(a);
+	ft_rotate_rev(b);
 	ft_printf("rrr\n");
 }

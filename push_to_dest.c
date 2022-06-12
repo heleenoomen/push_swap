@@ -56,7 +56,7 @@ void	calc_r_dest_min_fw(t_dlst *b, int mid, t_p *dest_new)
 	dest_new->rev = 0;
 	while (r <= mid)
 	{
-		if (i->nb == b->min)
+		if (i->nb == b->max)
 			break ;
 		i = i->next;
 		r++;
@@ -77,7 +77,7 @@ void	calc_r_dest_min_rev(t_dlst *b, t_p *dest_new)
 	dest_new->rev = 1;
 	while (i)
 	{
-		if (i->nb == b->min)
+		if (i->nb == b->max)
 			break ;
 		i = i->next;
 		r++;
@@ -100,13 +100,19 @@ void	calc_r_dest_inbtw_fw(t_dlst *b, int nb, int mid, t_p *dest_new)
 	i = b->head;
 	r = 0;
 	dest_new->rev = 0;
+	// ft_printf("103\n");
+	// ft_printf("nb = %i\n", nb);
+	// ft_printf("i->nb = %i\n", i->nb);
+	// ft_printf("i->rev->nb = %i\n", i->prev->nb);
+	// ft_printf("mid = %i\n", mid);
 	while (r <= mid)
 	{
-		if (nb < i->nb && nb > i->prev->nb)
+		if (nb > i->nb && nb < i->prev->nb)
 			break ;
 		i = i->next;
 		r++;
 	}
+	//ft_printf("r = %i\n", r);
 	if (r > mid)
 		dest_new->r = -1;
 	else
@@ -123,7 +129,7 @@ void	calc_r_dest_inbtw_rev(t_dlst *b, int nb, t_p *dest_new)
 	dest_new->rev = 1;
 	while (1)
 	{
-		if (nb < i->nb && nb > i->prev->nb)
+		if (nb > i->nb && nb < i->prev->nb)
 			break ;
 		i = i->next;
 		r++;
@@ -141,17 +147,18 @@ void	calc_r_dest_inbtw(t_dlst *b, int nb, int mid, t_p *dest_new)
 void	calc_r_dest(t_dlst *b, int nb, int mid, t_p *dest)
 {
 	if (nb > b->max)
-		calc_r_dest_max(b, mid, dest);
+		calc_r_dest_min(b, mid, dest);
 	else if (nb < b->min)
 		calc_r_dest_min(b, mid, dest);
 	else
 		calc_r_dest_inbtw(b, nb, mid, dest);
 }
 
-void	update_org(t_p *org, int dest_r, int nb, int r)
+void	update_org(t_p *org, t_p *dest_new, int nb, int r)
 {
-	org->ops = r + dest_r;
+	org->ops = r + dest_new->r - dest_new->r_sim;
 	org->nb = nb;
+	org->r_sim = dest_new->r_sim;
 	org->r = r;
 }
 
@@ -159,16 +166,17 @@ void	update_dest(t_p *dest, t_p *dest_new)
 {
 	dest->rev = dest_new->rev;
 	dest->r = dest_new->r;
+	dest->r_sim = dest_new->r_sim;
 }
 
-void	adj_for_simult(t_p *org, t_p *dest_new)
+void	adj_for_simult(t_p *org, t_p *dest_new, int r)
 {
 	if (dest_new->rev == -1 || org->rev == dest_new->rev)
 	{
-		if (org->r >= dest_new->r)
-			dest_new->r = 0;
+		if (r >= dest_new->r)
+			dest_new->r_sim = dest_new->r;
 		else
-			dest_new->r -= org->r;
+			dest_new->r_sim = r;
 	}
 }
 
@@ -189,10 +197,10 @@ void	calc_origin_rra(t_dlst *a, t_dlst *b, t_p *org, t_p *dest)
 	while (r <= mid_a)
 	{
 		calc_r_dest(b, i->nb, mid_b, &dest_new);
-		adj_for_simult(org, &dest_new);
-		if ((r + dest_new.r) < org->ops)
+		adj_for_simult(org, &dest_new, r);
+		if ((r + dest_new.r - dest_new.r_sim) < org->ops)
 		{
-			update_org(org, dest_new.r, i->nb, r);
+			update_org(org, &dest_new, i->nb, r);
 			update_dest(dest, &dest_new);
 		}
 		r++;
@@ -219,10 +227,10 @@ void	calc_origin_ra(t_dlst *a, t_dlst *b, t_p *org, t_p *dest)
 	while (r <= mid_a)
 	{
 		calc_r_dest(b, i->nb, mid_b, &dest_new);
-		adj_for_simult(org, &dest_new);
-		if ((r + dest_new.r) < org->ops)
+		adj_for_simult(org, &dest_new, r);
+		if ((r + dest_new.r - dest_new.r_sim) < org->ops)
 		{
-			update_org(org, dest_new.r, i->nb, r);
+			update_org(org, &dest_new, i->nb, r);
 			update_dest(dest, &dest_new);
 		}
 		r++;

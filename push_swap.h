@@ -32,6 +32,7 @@ typedef struct s_p
 	int		ops;
 	int		rev;  // 1 when rr is fastest, 0 when r is fastest, -1 when both are equally fast
 	int		r;  // number of rotations
+	int		r_sim;
 }			t_p;
 
 # define MAX_INT	2147483647
@@ -58,7 +59,7 @@ void	dlst_dup(t_dlst *source, t_dlst *dest);
 void	ft_swap(t_dlst *stack);
 void	ft_rotate(t_dlst *stack);
 void	ft_rotate_rev(t_dlst *stack);
-bool	ft_push(t_dlst *org, t_dlst *dest);
+void	ft_push(t_dlst *org, t_dlst *dest);
 void	ft_s(t_dlst *stack);
 void	ft_r(t_dlst *stack);
 void	ft_rr(t_dlst *stack);
