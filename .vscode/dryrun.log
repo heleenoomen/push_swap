@@ -1,4 +1,4 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/hoomen/projects/push_swap'
 cc -Wall -Wextra -Werror -c push_swap.c -o push_swap.o
  
@@ -6,6 +6,7 @@ cc -Wall -Wextra -Werror -c dlst_basics.c -o dlst_basics.o
 cc -Wall -Wextra -Werror -c sort.c -o sort.o
 cc -Wall -Wextra -Werror -c pick_nb_a.c -o pick_nb_a.o
 cc -Wall -Wextra -Werror -c ins_b.c -o ins_b.o
+ 
 cc -Wall -Wextra -Werror -c sort_b.c -o sort_b.o
 cc -Wall -Wextra -Werror -c ops.c -o ops.o
 cc -Wall -Wextra -Werror -c print_dlst.c -o print_dlst.o

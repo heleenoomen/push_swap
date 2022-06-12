@@ -20,13 +20,12 @@ void	ins_b_max(t_dlst *b, t_p *r)
 
 void	ins_b_min(t_dlst *b, t_p *r)
 {
-	ft_printf("--------------------\n");
-	ft_printf("in ins_b_min:\n");
-	ft_printf("nb = %i\n", r->nb);
-	ft_printf("ops = %i\n", r->ops);
-	ft_printf("ra = %i\n", r->ra);
-	ft_printf("rb = %i\n", r->rb);
-	return ;
+	// ft_printf("--------------------\n");
+	// ft_printf("in ins_b_min:\n");
+	// ft_printf("nb = %i\n", r->nb);
+	// ft_printf("ops = %i\n", r->ops);
+	// ft_printf("ra = %i\n", r->ra);
+	// ft_printf("rb = %i\n", r->rb);
 	if (r->rb)
 	{
 		while (b->head->nb != b->min)
@@ -39,12 +38,11 @@ void	ins_b_min(t_dlst *b, t_p *r)
 
 void	ins_b_inbtw(t_dlst *b, t_p *r)
 {
-	ft_printf("--------------------\n");
-	ft_printf("nb = %i\n", r->nb);
-	ft_printf("ops = %i\n", r->ops);
-	ft_printf("ra = %i\n", r->ra);
-	ft_printf("rb = %i\n", r->rb);
-	return ;
+	// ft_printf("--------------------\n");
+	// ft_printf("nb = %i\n", r->nb);
+	// ft_printf("ops = %i\n", r->ops);
+	// ft_printf("ra = %i\n", r->ra);
+	// ft_printf("rb = %i\n", r->rb);
 	if (r->rb)
 	{
 		while (!(r->nb < b->head->nb && r->nb > b->tail->nb))
@@ -90,12 +88,12 @@ void	ins_b(t_dlst *a, t_dlst *b, t_p *r)
 		ins_first_second(a, b, r);
 		return ;
 	}
-	ft_printf("r->nb = %i, b->min = %i\n", r->nb, b->min);
+	//ft_printf("r->nb = %i, b->min = %i\n", r->nb, b->min);
 	if (r->nb > b->max)
-		ins_b_max(a, b, r);
+		ins_b_max(b, r);
 	else if (r->nb < b->min)
-		ins_b_min(a, b, r);
+		ins_b_min(b, r);
 	else
-		ins_b_inbtw(a, b, r);
+		ins_b_inbtw(b, r);
 	ft_pb(a, b);
 }

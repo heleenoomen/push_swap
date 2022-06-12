@@ -18,13 +18,13 @@ void	push_nb_b(t_dlst *a, t_dlst *b)
 
 void	push_to_b(t_dlst *a, t_dlst *b)
 {
-	int	i;
+	//int	i;
 
-	i = 0;
-	while (a->size && i < 4)
+	//i = 0;
+	while (a->size)// && i < 5)
 	{
 		push_nb_b(a, b);
-		i++;
+		//i++;
 	}
 	ps;
 }
