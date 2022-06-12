@@ -1,56 +1,6 @@
 #include"push_swap.h"
 
-void	print_dlst(t_dlst *stack, char *name)
-{
-	t_dnode	*i;
-
-	ft_printf("-----------------------------\n");
-	ft_printf("%s:\n", name);
-	i = stack->head;
-	if (i == NULL)
-	{
-		ft_printf("\tlist is NULL\n");
-		return ;
-	}
-	while (i != stack->tail)
-	{
-		ft_printf("\t%i\tid = %i\n", i->nb, i->id);
-		i = i->next;
-	}
-	ft_printf("\t%i\tid = %i\n", i->nb, i->id);
-	ft_printf("stack->head->nb = %i\n", stack->head->nb);
-	ft_printf("stack->tail->nb = %i\n", stack->tail->nb);
-	ft_printf("stack->head->prev->nb = %i\n", stack->head->prev->nb);
-	ft_printf("stack->tail->next->nb = %i\n", stack->tail->next->nb);
-	ft_printf("-----------------------------\n");
-}
-
-void	print_dlst_rev(t_dlst *stack, char *name)
-{
-	t_dnode	*i;
-
-	ft_printf("-----------------------------\n");
-	ft_printf("%s:\n", name);
-	i = stack->tail;
-	if (i == NULL)
-	{
-		ft_printf("\tlist is NULL\n");
-		return ;
-	}
-	while (i != stack->head)
-	{
-		ft_printf("\t%i\tid = %i\n", i->nb, i->id);
-		i = i->prev;
-	}
-	ft_printf("\t%i\tid = %i\n", i->nb, i->id);
-	ft_printf("stack->head->nb = %i\n", stack->head->nb);
-	ft_printf("stack->tail->nb = %i\n", stack->tail->nb);
-	ft_printf("stack->head->prev->nb = %i\n", stack->head->prev->nb);
-	ft_printf("stack->tail->next->nb = %i\n", stack->tail->next->nb);	
-	ft_printf("-----------------------------\n");
-}
-
-void	print_sorted(t_dlst *stack_a, int *ops)
+void	print_sorted(t_dlst *stack_a)
 {
 	t_dnode	*i; 
 	
@@ -68,32 +18,9 @@ void	print_sorted(t_dlst *stack_a, int *ops)
 		i = i->next;
 	}
 	ft_printf(" %i\n", i->nb);
-	ft_printf("operations: %i\n", *ops);
 	ft_printf("-------------------------------\n");
 }
 
-// void	print_liss(t_dlst *stack)
-// {
-// 	t_dnode *i;
-// 	int		value;
-	
-// 	i = stack->liss_ptr;
-// 	value = 0;
-// 	ft_printf("------------LISS:--------------\n");
-// 	ft_printf("ofset is at: %i\n", stack->liss_ptr->nb);
-// 	while (1)
-// 	{
-// 		if (i->nb >= value)
-// 		{
-// 			ft_printf("%i\n", i->nb);
-// 			value = i->nb;
-// 		}
-// 		i = i->next;
-// 		if (i == stack->liss_ptr)
-// 			break ;
-// 	}
-// 	ft_printf("-------------------------------\n");
-// }
 
 void	print_quickso_dlst(t_dnode *head, t_dnode *tail, t_dnode *i, t_dnode *j)
 {
@@ -179,5 +106,17 @@ void	print_stacks(t_dlst *a, t_dlst *b)
 			ft_printf("\t%i", j->nb);
 		ft_printf("\n");
 	}
+	ft_printf("-------------------------------\n");
+}
+
+void	print_p(t_p *p, char *name)
+{
+	ft_printf("-------------------------------\n");
+	ft_printf("%s:\n", name);
+	ft_printf("p->nb =\t\t%i\n", p->nb);
+	ft_printf("p->ops =\t%i\n", p->ops);
+	ft_printf("p->r =\t\t%i\n", p->r);
+	ft_printf("p->rev =\t%i\n", p->rev);
+	ft_printf("p->r_sim =\t%i\n", p->r_sim);
 	ft_printf("-------------------------------\n");
 }

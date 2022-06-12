@@ -1,9 +1,10 @@
 #include"push_swap.h"
 
-void	dlst_init(t_dlst *stack)
+void	dlst_init(t_dlst *stack, char name)
 {
 	stack->head = NULL;
 	stack->tail = NULL;
+	stack->name = name;
 	stack->size = 0;
 	stack->min = 0;
 	stack->max = 0;
@@ -156,7 +157,7 @@ void	dlst_dup(t_dlst *source, t_dlst *dup)
 	t_dnode	*new;
 	t_dnode	*i;
 
-	dlst_init(dup);
+	dlst_init(dup, 'd');
 	i = source->head;
 	while(1)
 	{

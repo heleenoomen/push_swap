@@ -82,7 +82,7 @@ void	make_a(int argc, char **argv, t_dlst *a)
 	else
 		is_single = 0;
 	i = 1;
-	dlst_init(a);
+	dlst_init(a, 'a');
 	while (argv[i] != NULL)
 	{
 		if (!ft_strisnumeric(argv[i]))
@@ -134,20 +134,18 @@ int	main(int argc, char **argv)
 {
 	t_dlst	a;
 	t_dlst	sor;
-	int		ops;
 
 	//atexit(check);
 	if (argc == 1)
 		return (0);
-	ops = 0;
 	make_a(argc, argv, &a);
 	make_sor(&a, &sor);
 	//print_dlst(&sor, "sor");
 	check_dupl(&a, &sor);
-	simplify_sequence(&a, &sor);
+	//simplify_sequence(&a, &sor);
 	//print_dlst(&a, "stack a");
-	ft_sort(&a, &sor, &ops);
-	print_sorted(&a, &ops);
+	ft_sort(&a);
+	//print_sorted(&a);
 	dlst_clear(&a);
 	//dlst_clear(&b);
 	dlst_clear(&sor);
