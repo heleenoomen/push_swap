@@ -29,10 +29,8 @@ typedef struct s_p
 {
 	int		nb;
 	int		ops;
-	bool	ra;
-	int		nra;
-	bool	rb;
-	int		nrb;
+	int		rev;  // 1 when rr is fastest, 0 when r is fastest, -1 when both are equally fast
+	int		r;  // number of rotations
 }			t_p;
 
 # define MIN_INT	-2147483648

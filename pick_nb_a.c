@@ -144,7 +144,7 @@ int	det_nrb_inbtw(t_dlst *b, int nb, int mid, bool *rb)
 	return (nrb);
 }
 
-int	det_nrb(t_dlst *b, int nb, int mid, bool *rb)
+int	det_nrb(t_dlst *b, int nb, int mid, bool *rb) // = calc ops_b
 {
 	int	nrb;
 
@@ -163,7 +163,7 @@ int	det_nrb(t_dlst *b, int nb, int mid, bool *rb)
 	return (nrb);
 }
 
-void	pick_nb_a_top(t_dlst *a, t_dlst *b, int mid, t_p *r)
+void	pick_nb_a_top(t_dlst *a, t_dlst *b, int mid, t_p *r) // = calc_a_ra
 {
 	int		nra;
 	int		ops_new;
@@ -190,7 +190,7 @@ void	pick_nb_a_top(t_dlst *a, t_dlst *b, int mid, t_p *r)
 	}
 }
 
-void	pick_nb_a_bot(t_dlst *a, t_dlst *b, int mid, t_p *r)
+void	pick_nb_a_bot(t_dlst *a, t_dlst *b, int mid, t_p *r) // = calc_a_rra
 {
 	int		nra;
 	int		ops_new;
