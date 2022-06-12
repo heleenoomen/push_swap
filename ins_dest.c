@@ -62,21 +62,9 @@ void	r_org(t_dlst *a, t_dlst *b, t_p *org, t_p *dest)
 		r_org_rev(a, b, org, dest);
 }
 
-void	ins_first_second(t_dlst *a, t_dlst *b)
-{
-	if (b->head == NULL)
-		ft_p(a, b);
-	else if (b->head == b->tail && a->head->nb < b->head->nb)
-		ft_p(a, b);
-	else if (b->head == b->tail)
-	{
-		ft_p(a, b);
-		ft_r(b);
-	}
-}
-
 void	r_dest(t_dlst *b, t_p *dest)
 {
+	print_p(dest, "dest");
 	if (!dest->rev)
 	{
 		while (dest->r)
@@ -89,17 +77,15 @@ void	r_dest(t_dlst *b, t_p *dest)
 	while (dest->r)
 	{
 		ft_rr(b);
+		dest->r--;
 	}
 }
 
 void	ins_dest(t_dlst *a, t_dlst *b, t_p *org, t_p *dest)
 {
+	print_p(org, "org");
+	print_p(dest, "dest");
 	r_org(a, b, org, dest);
-	if (b->head == NULL || b->head == b->tail)
-	{
-		ins_first_second(a, b);
-		return ;
-	}
 	if (a->head->nb > b->max)
 		r_dest(b, dest);
 	ft_p(a, b);

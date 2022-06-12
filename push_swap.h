@@ -71,14 +71,17 @@ void	ft_sort(t_dlst *a);
 
 //push_to_dest.c
 void	push_to_dest(t_dlst *a, t_dlst *b);
+void	push_last(t_dlst *a, t_dlst *b);
 
 //ins_dest.c
 void	ins_dest(t_dlst *a, t_dlst *b, t_p *org, t_p *dest);
+void	r_dest(t_dlst *b, t_p *dest);
 
 //print_dlst.c
 void	print_sorted(t_dlst *stack_t);
 void	print_quickso_dlst(t_dnode *head, t_dnode *tail, t_dnode *i, t_dnode *j);
 void	print_stacks(t_dlst *a, t_dlst *b);
+void	print_p(t_p *p, char *name);
 
 //quickso_dlst.c
 void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail);

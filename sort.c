@@ -58,11 +58,16 @@ void	ft_sort(t_dlst *a)
 	int		i;
 	
 	dlst_init(&b, 'b');
+	ft_p(a, &b);
+	ft_p(a, &b);
 	i = 0;
-	while (a->size && i < 1)
+	while (a->size > 1 && i < 2)
 	{
 		push_to_dest(a, &b);
 		i++;
+		ps2;
 	}
+	push_last(a, &b);
 	ps2;
+	dlst_clear(&b);
 }

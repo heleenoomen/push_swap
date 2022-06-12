@@ -6,7 +6,7 @@
 #    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 15:22:54 by hoomen            #+#    #+#              #
-#    Updated: 2022/06/12 11:54:38 by hoomen           ###   ########.fr        #
+#    Updated: 2022/06/12 12:00:35 by hoomen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGS 	=	-Wall -Wextra -Werror
 # file variables
 NAME			= push_swap
 # source files
-MAIN			= push_swap dlst_basics ops_gen sort push_to_dest ins_dest print_dlst
+MAIN			= push_swap dlst_basics ops_gen sort push_to_dest ins_dest print_dlst quickso_dlst
 LIBFT			= atoi isdigit strchr strlen split calloc memcpy
 FT_PRINTF 		= convert initmodifiers modifiers pad parse printchar printf printint printnbr printstr putnbrpf
 # add prefix and suffix to filenames
