@@ -173,6 +173,7 @@ void	update_dest(t_p *dest, t_p *dest_new)
 
 void	adj_for_simult(t_p *org, t_p *dest_new, int r)
 {
+	dest_new->r_sim = 0;
 	if (dest_new->rev == -1 || org->rev == dest_new->rev)
 	{
 		if (r >= dest_new->r)

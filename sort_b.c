@@ -26,5 +26,5 @@ void	push_to_b(t_dlst *a, t_dlst *b)
 		push_nb_b(a, b);
 		//i++;
 	}
-	ps;
+	//ps;
 }
