@@ -38,6 +38,16 @@ int	calc_r_dest_max_rev(t_dlst *b, t_p *dest)
 	return (r);
 }
 
+int	calc_r_dest_max(t_dlst *b, int mid, t_p *dest)
+{
+	int	r;
+
+	r = calc_r_dest_max_fw(b, mid, dest);
+	if (r == -1)
+		return (calc_r_dest_max_rev(b, dest));
+	return (r);
+}
+
 int	calc_r_dest_min_fw(t_dlst *b, int mid, t_p *dest)
 {
 	t_dnode	*i;
@@ -76,6 +86,16 @@ int	calc_r_dest_min_rev(t_dlst *b, t_p *dest)
 	return (r);
 }
 
+int	calc_r_dest_min(t_dlst *b, int mid, t_p *dest)
+{
+	int	r;
+
+	r = calc_r_dest_min_fw(b, mid, dest);
+	if (r == -1)
+		return (calc_r_dest_min_rev(b, dest));
+	return (r);
+}
+
 int	calc_r_dest_inbtw_fw(t_dlst *b, int nb, int mid, t_p *dest)
 {
 	t_dnode	*i;
@@ -111,26 +131,6 @@ int	calc_r_dest_inbtw_rev(t_dlst *b, int nb, t_p *dest)
 		i = i->next;
 		r++;
 	}
-	return (r);
-}
-
-int	calc_r_dest_max(t_dlst *b, int mid, t_p *dest)
-{
-	int	r;
-
-	r = calc_r_dest_max_fw(b, mid, dest);
-	if (r == -1)
-		return (calc_r_dest_max_rev(b, dest));
-	return (r);
-}
-
-int	calc_r_dest_min(t_dlst *b, int mid, t_p *dest)
-{
-	int	r;
-
-	r = calc_r_dest_min_fw(b, mid, dest);
-	if (r == -1)
-		return (calc_r_dest_min_rev(b, dest));
 	return (r);
 }
 
@@ -238,7 +238,7 @@ void	calc_origin_ra(t_dlst *a, t_dlst *b, t_p *org, t_p *dest)
 	}
 }
 
-void	calc_ops_origin(t_dlst *a, t_dlst *b)
+void	push_to_dest(t_dlst *a, t_dlst *b)
 {
 	t_p	org_top;
 	t_p	org_bot;

@@ -52,15 +52,17 @@
 // }
 
 
-void	ft_sort_sba(t_dlst *a)
+void	ft_sort(t_dlst *a)
 {
 	t_dlst	b;
+	int		i;
 	
-	dlst_init(&b);
-	push_to_b(a, &b);
+	dlst_init(&b, 'b');
+	i = 0;
+	while (a->size && i < 1)
+	{
+		push_to_dest(a, &b);
+		i++;
+	}
+	ps2;
 }
-
-//comparison:
-// numbers:		ops sort_small		ops. sortb
-// 20			74					134
-// 100			1580				2869
