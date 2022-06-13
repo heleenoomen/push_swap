@@ -74,16 +74,17 @@ void	r_dest(t_dlst *b, t_p *dest)
 
 void	ins_dest(t_dlst *a, t_dlst *b, t_p *org, t_p *dest)
 {
-	//print_p(org, "org");
-	//print_p(dest, "dest");
+	// print_p(org, "org");
+	// print_p(dest, "dest");
 	if (org != NULL)
 		r_org(a, b, org, dest);
-	if (a->head->nb < b->min || a->head->nb > b->max)
-	{
-		if (b->head->nb != b->max)
-			r_dest(b, dest);
-	}
-	else if (!(a->head->nb > b->head->nb && a->head->nb < b->tail->nb))
-		r_dest(b, dest);
+	r_dest(b, dest);
+	// if (a->head->nb < b->min || a->head->nb > b->max)
+	// {
+	// 	if (b->head->nb != b->max)
+	// 		r_dest(b, dest);
+	// }
+	// else if (!(a->head->nb > b->head->nb && a->head->nb < b->tail->nb))
+	// 	r_dest(b, dest);
 	ft_p(a, b);
 }

@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Sun Jun 12 12:01:00 2022
+# Make data base, printed on Mon Jun 13 12:40:54 2022
 
 # Variables
 
@@ -39,7 +39,7 @@ MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/vscode-ipc-ac75f446-d82d-4fd1-8056-908fa72efd0f.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/vscode-ipc-bedc73c0-755a-42e0-a82b-cb67055da2f8.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -55,7 +55,7 @@ GNLOBJS = $(GNLFILES:.c=.o)
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.neWg6n3EyX/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.geB5dCODci/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -123,7 +123,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # makefile (from `Makefile', line 19)
-MAIN = push_swap dlst_basics ops_gen sort push_to_dest ins_dest print_dlst quickso_dlst
+MAIN = push_swap dlst_basics ops_gen sort push_to_dest ins_dest print_dlst quickso_dlst sort_small
 # environment
 XPC_SERVICE_NAME = com.microsoft.VSCode.2412
 # automatic
@@ -157,7 +157,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 7002
+VSCODE_PID = 61110
 # variable set hash-table stats:
 # Load=73/1024=7%, Rehash=0, Collisions=4/112=4%
 
@@ -167,9 +167,9 @@ VSCODE_PID = 7002
 
 # Directories
 
-# . (device 16777225, inode 1054228): 29 files, no impossibilities.
+# . (device 16777225, inode 1054228): 26 files, no impossibilities.
 
-# 29 files, no impossibilities in 1 directories.
+# 26 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -185,7 +185,7 @@ VSCODE_PID = 7002
 # Not a target:
 push_swap.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-12 11:44:26
+#  Last modified 2022-06-13 11:57:10
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -279,9 +279,15 @@ ins_dest.o:
 #  File has not been updated.
 
 # Not a target:
+sort_small.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-12 12:00:35
+#  Last modified 2022-06-13 12:40:34
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -314,13 +320,13 @@ fclean: clean
 	rm -f $(NAME)
 	
 
+ 
 # Not a target:
 ft_printf/ft_printint.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
- 
 # Not a target:
 ft_printf/ft_pad.o:
 #  Implicit rule search has not been done.
@@ -396,9 +402,9 @@ push_swap.o: push_swap.c
 	@$(CC) $(FLAGS) -c $< -o $@
 	
 
-push_swap: push_swap.o dlst_basics.o ops_gen.o sort.o push_to_dest.o ins_dest.o print_dlst.o quickso_dlst.o libft/ft_atoi.o libft/ft_isdigit.o libft/ft_strchr.o libft/ft_strlen.o libft/ft_split.o libft/ft_calloc.o libft/ft_memcpy.o ft_printf/ft_convert.o ft_printf/ft_initmodifiers.o ft_printf/ft_modifiers.o ft_printf/ft_pad.o ft_printf/ft_parse.o ft_printf/ft_printchar.o ft_printf/ft_printf.o ft_printf/ft_printint.o ft_printf/ft_printnbr.o ft_printf/ft_printstr.o ft_printf/ft_putnbrpf.o
+push_swap: push_swap.o dlst_basics.o ops_gen.o sort.o push_to_dest.o ins_dest.o print_dlst.o quickso_dlst.o sort_small.o libft/ft_atoi.o libft/ft_isdigit.o libft/ft_strchr.o libft/ft_strlen.o libft/ft_split.o libft/ft_calloc.o libft/ft_memcpy.o ft_printf/ft_convert.o ft_printf/ft_initmodifiers.o ft_printf/ft_modifiers.o ft_printf/ft_pad.o ft_printf/ft_parse.o ft_printf/ft_printchar.o ft_printf/ft_printf.o ft_printf/ft_printint.o ft_printf/ft_printnbr.o ft_printf/ft_printstr.o ft_printf/ft_putnbrpf.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-12 12:00:36
+#  Last modified 2022-06-13 11:56:25
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -451,7 +457,7 @@ libft/ft_atoi.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=37/1024=4%, Rehash=0, Collisions=6/90=7%
+# Load=38/1024=4%, Rehash=0, Collisions=6/92=7%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -463,6 +469,6 @@ libft/ft_atoi.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sun Jun 12 12:01:00 2022
+# Finished Make data base on Mon Jun 13 12:40:54 2022
 
  
