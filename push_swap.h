@@ -71,6 +71,7 @@ void	ft_rr_sim(t_dlst *a, t_dlst *b);
 //sort.c
 void	sort(t_dlst *a);
 void	push_to_org(t_dlst *a, t_dlst *b);
+bool	is_sorted(t_dlst *a);
 
 //sort_small.c
 void	sort_small(t_dlst *a, t_dlst *b);
@@ -78,6 +79,7 @@ void	sort_small(t_dlst *a, t_dlst *b);
 //push_to_dest.c
 void	push_to_dest(t_dlst *a, t_dlst *b);
 void	push_last_q(t_dlst *a, t_dlst *b);
+void	calc_r_dest(t_dlst *d, int nb, int mid, t_p *dest_new);
 
 //ins_dest.c
 void	ins_dest(t_dlst *a, t_dlst *b, t_p *org, t_p *dest);

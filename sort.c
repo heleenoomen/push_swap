@@ -18,7 +18,7 @@ void	push_to_org(t_dlst *a, t_dlst *b)
 		r++;
 		i = i->next;
 	}
-	if (r < mid)
+	if (r <= mid)
 	{
 		while (a->head->nb != a->min)
 			ft_r(a);
@@ -50,7 +50,7 @@ bool	is_sorted(t_dlst *a)
 			return (0);
 		if (i->nb < i->next->nb)
 			i = i->next;
-		if (i == a->head)
+		if (i == a->tail)
 			return (1);
 	}
 }
@@ -62,7 +62,7 @@ void	sort(t_dlst *a)
 	if (is_sorted(a))
 		exit (0);
 	dlst_init(&b, 'b');
-	if (a->size < 11)
+	if (a->size < 501)
 		sort_small(a, &b);
 	else
 		sort_big(a, &b);

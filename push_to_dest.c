@@ -425,11 +425,25 @@ void	push_to_dest(t_dlst *a, t_dlst *b)
 	init_dest(&dest_top, &dest_bot);
 	calc_origin_ra(a, b, &org_top, &dest_top);
 	calc_origin_rra(a, b, &org_bot, &dest_bot);
-	// print_p(&org_top, "org_top");
-	// print_p(&dest_top, "dest_top");
-	// print_p(&org_bot, "org_bot");
-	// print_p(&dest_bot, "dest_bot");
-	if (org_top.ops <= org_bot.ops)
+	if ((a->size + b->size) < 501 && a->size == 2)
+	{
+	// 	//ft_printf("1\n");
+		if (org_bot.ops <= (org_top.ops + 1) && org_bot.r_sim
+			&& a->head->nb < a->tail->nb)
+		{
+			//ft_printf("2\n");
+			ins_dest(a, b, &org_bot, &dest_bot);
+		}
+		// else if (a->head->nb < a->tail->nb && org_top.ops)
+		// {
+		// 	//ft_printf("3\n");
+		// 	ft_s(a);
+		// 	push_to_dest(a, b);
+		// }
+		else
+			ins_dest(a, b, &org_top, &dest_top);
+	}	
+	else if (org_top.ops <= org_bot.ops)
 		ins_dest(a, b, &org_top, &dest_top);
 	else
 		ins_dest(a, b, &org_bot, &dest_bot);
