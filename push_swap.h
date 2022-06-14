@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:33 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 13:56:11 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/14 17:21:10 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include<stddef.h>
 # include"ft_printf/ft_printf.h"
 # include"libft/libft.h"
+# include"get_next_line/get_next_line.h"
 
 typedef struct s_dnode
 {
@@ -48,19 +49,24 @@ typedef struct s_p
 	int		r_sim;
 }			t_p;
 
-# define MAX_INT	2147483647
+# define MAX_INT	(unsigned long) 2147483647
 
 # define ps		print_stacks(a, b)
 # define ps2	print_stacks(a, &b)
 
-//input_utils.c
+//input_utils1.c
+void	parse_argv(int *argc, char ***argv);
+void	make_dllst(char **argv, t_dlst *a);
+void	make_stack_a(int argc, char **argv, t_dlst *a);
+
+//input_utils2.c
 bool	ft_strisnumeric(const char *s);
 void	ft_free_argv_ps(char **arr);
 char	**ft_split_shift(char *s, char c);
 
 //dlst_basics1.c
 void	dlst_init(t_dlst *stack, char name);
-void	dlst_addnew(const char *s, t_dlst *stack);
+void	dlst_addnew(t_dlst *stack, int i);
 void	dlst_addlast(t_dnode *newn, t_dlst *stack);
 void	dlst_addfront(t_dnode *newn, t_dlst *stack);
 
@@ -123,5 +129,8 @@ void	print_p(t_p *p, char *name);
 //check_dupl.c
 void	check_dupl(t_dlst *a);
 void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail);
+
+//bonus.c
+int		main(int argc, char **argv);
 
 #endif

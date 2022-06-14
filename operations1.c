@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:03 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 13:51:55 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/14 18:26:27 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ void	ft_push(t_dlst *org, t_dlst *dest)
 void	ft_s(t_dlst *stack)
 {
 	ft_swap(stack);
+	if (stack->name == 'c')
+		return ;
 	ft_printf("s%c\n", stack->name);
 }

@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:47:39 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 13:50:25 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/14 17:19:20 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	dlst_init(t_dlst *stack, char name)
 	stack->max = 0;
 }
 
-void	dlst_addnew(const char *s, t_dlst *stack)
+void	dlst_addnew(t_dlst *stack, int i)
 {
 	t_dnode	*new;
 
 	new = malloc(sizeof(t_dnode));
 	new->prev = NULL;
-	new->nb = ft_atoi(s);
+	new->nb = i;
 	new->next = NULL;
 	dlst_addlast(new, stack);
 }
