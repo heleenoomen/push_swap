@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:45 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 20:58:16 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/14 21:02:32 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	sort(t_dlst *a)
 	if (a->size == 3)
 		sort_three(a);
 	dlst_init(&b, 'b');
-	if (a->size > 300)
+	if (a->size > 250)
 	{
 		while (a->size > (mid * 2))
 		{
