@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:45 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 15:16:37 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/14 20:58:16 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,60 @@ bool	is_sorted(t_dlst *a)
 	}
 }
 
+bool	r_or_rr(t_dlst *a, int key)
+{
+	t_dnode	*i;
+	int		top;
+	int		bot;
+
+	i = a->head;
+	top = 0;
+	while (i->nb > key)
+	{
+		i = i->next;
+		top++;
+		if (i == a->head)
+			break ;
+	}
+	i = a->tail;
+	bot = 1;
+	while (i->nb > key)
+	{
+		i = i->prev;
+		top++;
+		if (i == a->tail)
+			break ;
+	}
+	return (top <= bot);
+}
+
 void	sort(t_dlst *a)
 {
 	t_dlst	b;
+	t_dlst	sor;
+	t_dnode	*i;
+	int		mid;
+	int		key1;
+	int		key2;
+	int		c;
 
+	dlst_dup(a, &sor);
+	quickso_dlst(&sor, sor.head, sor.tail);
+	mid = sor.size / 3;
+	i = sor.head;
+	c = 0;
+	while (c <= mid)
+	{
+		i = i->next;
+		c++;
+	}
+	key1 = i->nb;
+	while (c <= (mid * 2))
+	{
+		i = i->next;
+		c++;
+	}
+	key2 = i->nb;
 	if (is_sorted(a))
 		exit (0);
 	if (a->size == 2)
@@ -67,6 +117,27 @@ void	sort(t_dlst *a)
 	if (a->size == 3)
 		sort_three(a);
 	dlst_init(&b, 'b');
+	if (a->size > 300)
+	{
+		while (a->size > (mid * 2))
+		{
+			if (a->head->nb <= key1)
+				ft_p(a, &b);
+			else if (r_or_rr(a, key1))
+				ft_r(a);
+			else
+				ft_rr(a);
+		}
+		while (a->size > (mid))
+		{
+			if (a->head->nb <= key2)
+				ft_p(a, &b);
+			else if (r_or_rr(a, key2))
+				ft_r(a);
+			else
+				ft_rr(a);
+		}
+	}
 	while (a->size > 3)
 		ft_p(a, &b);
 	sort_three_b(a);
