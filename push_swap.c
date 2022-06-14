@@ -1,64 +1,18 @@
-//read, write, malloc, free, exit
-//ft_printf,libft
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/14 13:48:25 by hoomen            #+#    #+#             */
+/*   Updated: 2022/06/14 13:55:03 by hoomen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include"push_swap.h"
 
-bool	ft_strisnumeric(const char *s)
-{
-	int	i;
-
-	i = 0;
-	if (s[0] == '-')
-		i++;
-	while (s[i])
-	{
-		if (ft_isdigit((int) s[i]))
-			i++;
-		else
-			return (false);
-	}
-	return (true);
-}
-
-void	ft_free_argv_ps(char **arr)
-{
-	int		i;
-
-	i = 1;
-	while (arr[i] != NULL)
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-}
-
-char	**ft_split_shift(char *s, char c)
-{
-	char	**temp;
-	char	**argv;
-	int		count;
-	int		i;
-
-	temp = ft_split(s, c);
-	count = 0;
-	while (temp[count] != NULL)
-		count++;
-	argv = malloc((count + 2) * sizeof(char *));
-	if (argv == NULL)
-		return (NULL);
-	argv[0] = NULL;
-	i = 0;
-	while (i < (count + 1))
-	{
-		argv[i+1] = temp[i];
-		i++;
-	}
-	free(temp);
-	return (argv);
-}
-
-void	parse_argv(int *argc, char ***argv)  //3
+void	parse_argv(int *argc, char ***argv)
 {
 	*argv = ft_split_shift((*argv)[1], ' ');
 	if (*argv == NULL)
@@ -71,7 +25,7 @@ void	parse_argv(int *argc, char ***argv)  //3
 		(*argc)++;
 }
 
-void	make_dllst(char **argv, t_dlst *a)  //4
+void	make_dllst(char **argv, t_dlst *a)
 {
 	int	i;
 
@@ -91,7 +45,7 @@ void	make_dllst(char **argv, t_dlst *a)  //4
 	}
 }
 
-void	make_stack_a(int argc, char **argv, t_dlst *a) //2
+void	make_stack_a(int argc, char **argv, t_dlst *a)
 {
 	int	is_single;
 
@@ -112,8 +66,7 @@ void	check(void)
 	system("leaks push_swap");
 }
 
-
-int	main(int argc, char **argv)  //1
+int	main(int argc, char **argv)
 {
 	t_dlst	a;
 

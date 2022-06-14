@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations1.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/14 13:48:03 by hoomen            #+#    #+#             */
+/*   Updated: 2022/06/14 13:51:55 by hoomen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"push_swap.h"
 
 void	ft_swap(t_dlst *stack)
 {
 	t_dnode	*first;
-	t_dnode *second;
-	t_dnode *third;
+	t_dnode	*second;
+	t_dnode	*third;
 
 	if (stack->size == 0)
 		return ;

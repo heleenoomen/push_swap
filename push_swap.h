@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/14 13:48:33 by hoomen            #+#    #+#             */
+/*   Updated: 2022/06/14 13:56:11 by hoomen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -41,6 +53,10 @@ typedef struct s_p
 # define ps		print_stacks(a, b)
 # define ps2	print_stacks(a, &b)
 
+//input_utils.c
+bool	ft_strisnumeric(const char *s);
+void	ft_free_argv_ps(char **arr);
+char	**ft_split_shift(char *s, char c);
 
 //dlst_basics1.c
 void	dlst_init(t_dlst *stack, char name);

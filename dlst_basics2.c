@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dlst_basics2.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/14 13:47:45 by hoomen            #+#    #+#             */
+/*   Updated: 2022/06/14 13:51:07 by hoomen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"push_swap.h"
 
 void	dlst_clear(t_dlst *stack)
 {
 	t_dlst	i;
-	
+
 	if (stack->head == stack->tail)
 	{
 		free (stack->head);
@@ -38,7 +50,7 @@ void	reset_max(t_dlst *stack)
 {
 	int		max;
 	t_dnode	*i;
-;
+
 	max = stack->head->nb;
 	i = stack->head;
 	while (1)
@@ -88,7 +100,7 @@ void	dlst_dup(t_dlst *source, t_dlst *dup)
 
 	dlst_init(dup, 'd');
 	i = source->head;
-	while(1)
+	while (1)
 	{
 		new = malloc(sizeof(t_dnode));
 		new->id = i->id;

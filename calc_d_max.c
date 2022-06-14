@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   calc_d_max.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/14 13:47:04 by hoomen            #+#    #+#             */
+/*   Updated: 2022/06/14 13:49:08 by hoomen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"push_swap.h"
 
 void	calc_r_dst_max_fw_a(t_dlst *b, int mid, t_p *dst_new)
@@ -45,4 +57,3 @@ void	calc_r_dst_max_a(t_dlst *d, int mid, t_p *dst_new)
 	if (dst_new->r == -1)
 		calc_r_dst_max_rev_a(d, dst_new);
 }
-

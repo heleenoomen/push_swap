@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_dupl.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/14 13:47:32 by hoomen            #+#    #+#             */
+/*   Updated: 2022/06/14 13:50:03 by hoomen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"push_swap.h"
 
 void	swap_int(int *i, int *j)
@@ -55,7 +67,7 @@ void	check_dupl(t_dlst *a)
 {
 	t_dnode	*i;
 	t_dlst	sor;
-	
+
 	make_sor(a, &sor);
 	i = sor.head;
 	while (1)
@@ -69,7 +81,7 @@ void	check_dupl(t_dlst *a)
 		}
 		i = i->next;
 		if (i == sor.head)
-			break;
+			break ;
 	}
 	dlst_clear(&sor);
 }

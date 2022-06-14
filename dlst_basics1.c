@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dlst_basics1.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/14 13:47:39 by hoomen            #+#    #+#             */
+/*   Updated: 2022/06/14 13:50:25 by hoomen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"push_swap.h"
 
 void	dlst_init(t_dlst *stack, char name)
@@ -70,4 +82,3 @@ void	dlst_addfront(t_dnode *new, t_dlst *stack)
 	if (new->nb > stack->max)
 		stack->max = new->nb;
 }
-

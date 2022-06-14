@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/14 13:48:38 by hoomen            #+#    #+#             */
+/*   Updated: 2022/06/14 13:57:47 by hoomen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"push_swap.h"
 
 void	sort_three_b(t_dlst *a)
@@ -12,26 +24,26 @@ void	sort_three_b(t_dlst *a)
 
 void	push_second_last(t_dlst *a, t_dlst *b)
 {
-	if (a->tail->nb == a->min && b->max < a->head->nb && b->tail->nb > b->head->nb)
-	{
-		ft_s(b);
-		ft_p(b, a);
-		if (!is_sorted(a))
-			ft_rr(a);
-		ft_p(b, a);
-	}
-	else if (a->head->nb == a->max && b->tail->nb == b->max && b->max < a->max && b->max > a->tail->nb)
+	if (a->tail->nb == a->min && b->max < a->head->nb
+		&& b->tail->nb > b->head->nb)
 	{
 		ft_s(b);
 		ft_p(b, a);
 	}
-	else if (a->head->nb == a->max && b->tail->nb == b->max && b->max < b->head->nb && b->max > b->tail->nb)
+	else if (a->head->nb == a->max && b->tail->nb == b->max
+		&& b->max < a->max && b->max > a->tail->nb)
 	{
 		ft_s(b);
 		ft_p(b, a);
 	}
-	else if (b->head->nb < a->min && a->head->nb == a->min && b->tail->nb < a->head->next->nb
-		&& b->head->nb == b->min)
+	else if (a->head->nb == a->max && b->tail->nb == b->max
+		&& b->max < b->head->nb && b->max > b->tail->nb)
+	{
+		ft_s(b);
+		ft_p(b, a);
+	}
+	else if (b->head->nb < a->min && a->head->nb == a->min
+		&& b->tail->nb < a->head->next->nb && b->head->nb == b->min)
 	{
 		ft_s(b);
 		ft_p(b, a);
@@ -52,7 +64,8 @@ void	push_last(t_dlst *a, t_dlst *b)
 		ft_p(b, a);
 		ft_s(a);
 	}
-	else if (b->head->nb > a->head->next->nb && b->head->nb < a->head->next->next->nb)
+	else if (b->head->nb > a->head->next->nb
+		&& b->head->nb < a->head->next->next->nb)
 	{
 		ft_r(a);
 		ft_p(b, a);
@@ -64,7 +77,7 @@ void	push_last(t_dlst *a, t_dlst *b)
 
 void	final_r(t_dlst *a)
 {
-	t_dnode *i;
+	t_dnode	*i;
 	int		mid;
 	int		r;
 

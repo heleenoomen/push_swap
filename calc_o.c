@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   calc_o.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/14 13:47:24 by hoomen            #+#    #+#             */
+/*   Updated: 2022/06/14 13:49:37 by hoomen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"push_swap.h"
 
 void	update_org(t_p *org, t_p *dst_new, int nb, int r)
@@ -32,7 +44,7 @@ void	calc_o_rev(t_dlst *o, t_dlst *d, t_p *org, t_p *dst)
 	int		mid_o;
 	int		mid_d;
 	int		r;
-	t_dnode *i;
+	t_dnode	*i;
 	t_p		dst_new;
 
 	mid_o = o->size / 2;
@@ -60,7 +72,7 @@ void	calc_o_fw(t_dlst *o, t_dlst *d, t_p *org, t_p *dst)
 	int		mid_o;
 	int		mid_d;
 	int		r;
-	t_dnode *i;
+	t_dnode	*i;
 	t_p		dst_new;
 
 	mid_o = o->size / 2;
