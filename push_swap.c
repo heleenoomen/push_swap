@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:25 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 13:55:03 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/14 15:51:06 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,10 @@ void	make_stack_a(int argc, char **argv, t_dlst *a)
 		ft_free_argv_ps(argv);
 }
 
-void	check(void)
-{
-	system("leaks push_swap");
-}
-
 int	main(int argc, char **argv)
 {
 	t_dlst	a;
 
-	//atexit(check);
 	if (argc == 1)
 		return (0);
 	make_stack_a(argc, argv, &a);
