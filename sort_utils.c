@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:38 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 13:57:47 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/14 15:24:35 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,29 @@ void	sort_three_b(t_dlst *a)
 		ft_s(a);
 	else if (a->tail->nb < a->head->next->nb && a->head->next->nb < a->head->nb)
 		ft_s(a);
+}
+
+void	push_second_lastb(t_dlst *a, t_dlst *b)
+{
+	if (b->head->nb < a->min && a->head->nb == a->min
+		&& b->tail->nb < a->head->next->nb && b->head->nb == b->min)
+	{
+		ft_s(b);
+		ft_p(b, a);
+		if (!is_sorted(a))
+			ft_s(a);
+		ft_p(b, a);
+	}
+	if (a->head->nb < b->tail->nb && a->head->next->nb > b->tail->nb
+		&& b->head->nb < b->tail->nb && b->head->nb < a->head->nb &&
+			b->tail->nb > a->tail->nb)
+	{
+		ft_r(b);
+		ft_p(b, a);
+		ft_s(a);
+	}
+	else
+		push_sort(b, a);
 }
 
 void	push_second_last(t_dlst *a, t_dlst *b)
@@ -42,17 +65,8 @@ void	push_second_last(t_dlst *a, t_dlst *b)
 		ft_s(b);
 		ft_p(b, a);
 	}
-	else if (b->head->nb < a->min && a->head->nb == a->min
-		&& b->tail->nb < a->head->next->nb && b->head->nb == b->min)
-	{
-		ft_s(b);
-		ft_p(b, a);
-		if (!is_sorted(a))
-			ft_s(a);
-		ft_p(b, a);
-	}
 	else
-		push_sort(b, a);
+		push_second_lastb(a, b);
 }
 
 void	push_last(t_dlst *a, t_dlst *b)
