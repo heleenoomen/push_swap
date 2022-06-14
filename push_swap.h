@@ -41,27 +41,28 @@ typedef struct s_p
 # define ps		print_stacks(a, b)
 # define ps2	print_stacks(a, &b)
 
-//push_swap.c
-bool	ft_strisnumeric(const char *s);
-void	check_usage(int argc, char **argv, t_dlst *stack_a);
 
-//dlst_basics.c
+//dlst_basics1.c
 void	dlst_init(t_dlst *stack, char name);
 void	dlst_addnew(const char *s, t_dlst *stack);
 void	dlst_addlast(t_dnode *newn, t_dlst *stack);
 void	dlst_addfront(t_dnode *newn, t_dlst *stack);
+
+//dlst_basics2.c
 void	dlst_clear(t_dlst *stack);
 void	reset_min(t_dlst *stack);
 void	reset_max(t_dlst *stack);
 t_dnode	*dlst_detachfirst(t_dlst *stack);
 void	dlst_dup(t_dlst *source, t_dlst *dest);
 
-//ops_gen.c
+//operations1.c
 void	ft_swap(t_dlst *stack);
 void	ft_rotate(t_dlst *stack);
 void	ft_rotate_rev(t_dlst *stack);
 void	ft_push(t_dlst *org, t_dlst *dest);
 void	ft_s(t_dlst *stack);
+
+//operations2.c
 void	ft_r(t_dlst *stack);
 void	ft_rr(t_dlst *stack);
 void	ft_p(t_dlst *org, t_dlst *dest);
@@ -70,20 +71,32 @@ void	ft_rr_sim(t_dlst *a, t_dlst *b);
 
 //sort.c
 void	sort(t_dlst *a);
-void	push_to_org(t_dlst *a, t_dlst *b);
 bool	is_sorted(t_dlst *a);
 
-//sort_small.c
-void	sort_small(t_dlst *a, t_dlst *b);
+//sort_utils.c
+void	sort_three_b(t_dlst *a);
+void	push_second_last(t_dlst *a, t_dlst *b);
+void	push_last(t_dlst *a, t_dlst *b);
+void	final_r(t_dlst *a);
 
-//push_to_dest.c
-void	push_to_dest(t_dlst *a, t_dlst *b);
-void	push_last_q(t_dlst *a, t_dlst *b);
-void	calc_r_dest(t_dlst *d, int nb, int mid, t_p *dest_new);
+//push_sort.c
+void	push_sort(t_dlst *o, t_dlst *d);
 
-//ins_dest.c
-void	ins_dest(t_dlst *a, t_dlst *b, t_p *org, t_p *dest);
-void	r_dest(t_dlst *b, t_p *dest);
+//calc_o.c
+void	calc_o_rev(t_dlst *o, t_dlst *d, t_p *org, t_p *dst);
+void	calc_o_fw(t_dlst *o, t_dlst *d, t_p *org, t_p *dst);
+
+//calc_d.c
+void	calc_r_dst(t_dlst *d, int nb, int mid, t_p *dst_new);
+
+//calc_d_min.c
+void	calc_r_dst_min_a(t_dlst *d, int mid, t_p *dst_new);
+
+//calc_d_max.c
+void	calc_r_dst_max_a(t_dlst *d, int mid, t_p *dst_new);
+
+//ins_dst.c
+void	ins_dst(t_dlst *a, t_dlst *b, t_p *org, t_p *dst);
 
 //print_dlst.c
 void	print_sorted(t_dlst *stack_t);
@@ -91,8 +104,8 @@ void	print_quickso_dlst(t_dnode *head, t_dnode *tail, t_dnode *i, t_dnode *j);
 void	print_stacks(t_dlst *a, t_dlst *b);
 void	print_p(t_p *p, char *name);
 
-//quickso_dlst.c
+//check_dupl.c
+void	check_dupl(t_dlst *a);
 void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail);
-void	simplify_sequence(t_dlst *a, t_dlst *sor);
 
 #endif

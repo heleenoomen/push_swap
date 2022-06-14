@@ -112,35 +112,6 @@ void	check(void)
 	system("leaks push_swap");
 }
 
-void	make_sor(t_dlst *a, t_dlst *sor)
-{
-	dlst_dup(a, sor);
-	quickso_dlst(sor, sor->head, sor->tail);
-}
-
-void	check_dupl(t_dlst *a)
-{
-	t_dnode	*i;
-	t_dlst	sor;
-	
-	make_sor(a, &sor);
-	i = sor.head;
-	while (1)
-	{
-		if (i->nb == i->next->nb)
-		{
-			dlst_clear(&sor);
-			dlst_clear(a);
-			ft_printf("Error\n");
-			exit(0);
-		}
-		i = i->next;
-		if (i == sor.head)
-			break;
-	}
-	dlst_clear(&sor);
-}
-
 
 int	main(int argc, char **argv)  //1
 {

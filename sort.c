@@ -1,42 +1,31 @@
 #include"push_swap.h"
 
-void	push_to_org(t_dlst *a, t_dlst *b)
+void	sort_two(t_dlst *a)
 {
-	t_dnode *i;
-	int		mid;
-	int		r;
-
-	while (b->size)
-		ft_p(b, a);
-	i = a->head;
-	mid = a->size / 2;
-	r = 0;
-	while (1)
-	{
-		if (i->nb == a->min)
-			break ;
-		r++;
-		i = i->next;
-	}
-	if (r <= mid)
-	{
-		while (a->head->nb != a->min)
-			ft_r(a);
-		return ;
-	}
-	while (a->head->nb != a->min)
-		ft_rr(a);
+		ft_s(a);
+		exit(0);
 }
 
-void	sort_big(t_dlst *a, t_dlst *b)
+void	sort_three(t_dlst *a)
 {
-	ft_p(a, b);
-	ft_p(a, b);
-	if (b->head->nb < b->tail->nb)
-		ft_s(b);
-	while (a->size)
-		push_to_dest(a, b);
-	push_to_org(a, b);
+	if (a->head->next->nb < a->head->nb && a->head->nb < a->tail->nb)
+		ft_s(a);
+	else if (a->tail->nb < a->head->nb && a->head->nb < a->head->next->nb)
+		ft_rr(a);
+	else if (a->head->next->nb < a->tail->nb && a->tail->nb < a->head->nb)
+		ft_r(a);
+	else if (a->head->nb < a->tail->nb && a->tail->nb < a->head->next->nb)
+	{
+		ft_s(a);
+		ft_r(a);
+	}
+	else if (a->tail->nb < a->head->next->nb && a->head->next->nb < a->head->nb)
+	{
+		ft_s(a);
+		ft_rr(a);
+	}
+	dlst_clear(a);
+	exit (0);
 }
 
 bool	is_sorted(t_dlst *a)
@@ -61,10 +50,17 @@ void	sort(t_dlst *a)
 
 	if (is_sorted(a))
 		exit (0);
+	if (a->size == 2)
+		sort_two(a);
+	if (a->size == 3)
+		sort_three(a);
 	dlst_init(&b, 'b');
-	if (a->size < 501)
-		sort_small(a, &b);
-	else
-		sort_big(a, &b);
-	dlst_clear(&b);
+	while (a->size > 3)
+		ft_p(a, &b);
+	sort_three_b(a);
+	while (b.size > 2)
+		push_sort(&b, a);
+	push_second_last(a, &b);
+	push_last(a, &b);
+	final_r(a);
 }
