@@ -6,7 +6,7 @@
 #    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 15:22:54 by hoomen            #+#    #+#              #
-#    Updated: 2022/06/14 18:24:34 by hoomen           ###   ########.fr        #
+#    Updated: 2022/06/14 19:18:57 by hoomen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ BONUSFILES		= bonus.c
 LIBFTFILES		= $(addprefix libft/ft_,$(addsuffix .c, $(LIBFT)))
 FT_PRINTFFILES	= $(addprefix ft_printf/ft_, $(addsuffix .c, $(FT_PRINTF)))
 GNLFILES		= $(addprefix get_next_line/, $(addsuffix .c, $(GNL)))
+SCRIPTF			= make_script.c
 # object files
 MAINOBJS		= $(MAINFILES:.c=.o)
 UTILSOBJS		= $(UTILSFILES:.c=.o)
@@ -36,6 +37,7 @@ LIBFTOBJS		= $(LIBFTFILES:.c=.o)
 FT_PRINTFOBJS 	= $(FT_PRINTFFILES:.c=.o)
 GNLOBJS			= $(GNLFILES:.c=.o)
 BONUSOBJS		= $(BONUSFILES:.c=.o)
+SCRIPTOBJ		= $(SCRIPTF:.c=.o)
 
 all : $(NAME) clean
 
@@ -53,6 +55,9 @@ clean:
 
 bonus: $(BONUSOBJS) $(UTILSOBJS) $(LIBFTOBJS) $(FT_PRINTFOBJS) $(GNLOBJS)
 	@$(CC) $(FLAGS) $(BONUSOBJS) $(UTILSOBJS) $(LIBFTOBJS) $(FT_PRINTFOBJS) $(GNLOBJS) -o $(BONUSNAME)
+
+script: $(SCRIPTOBJ) $(FT_PRINTFOBJS) $(GNLOBJS) $(LIBFTOBJS)
+	@$(CC) $(FLAGS) $(SCRIPTOBJ) $(FT_PRINTFOBJS) $(GNLOBJS) $(LIBFTOBJS)
 
 fclean: clean
 	rm -f $(NAME)

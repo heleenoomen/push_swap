@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:33 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 17:21:10 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/14 19:11:49 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,6 @@ void	check_dupl(t_dlst *a);
 void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail);
 
 //bonus.c
-int		main(int argc, char **argv);
+//int		main(int argc, char **argv);
 
 #endif
