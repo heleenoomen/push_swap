@@ -6,7 +6,7 @@
 #    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 15:22:54 by hoomen            #+#    #+#              #
-#    Updated: 2022/06/15 17:56:36 by hoomen           ###   ########.fr        #
+#    Updated: 2022/06/15 18:39:22 by hoomen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,9 +51,7 @@ $(NAME): $(MAINOBJS) $(UTILSOBJS) $(LIBFTOBJS) $(FT_PRINTFOBJS)
 
 clean:
 	@rm -f *.o
-	@rm -f libft/*.o
-	@rm -f ft_printf/*.o
-	@rm -f src/*o
+	@rm -f */*.o
 
 bonus: $(BONUSOBJS) $(UTILSOBJS) $(LIBFTOBJS) $(FT_PRINTFOBJS) $(GNLOBJS)
 	@$(CC) $(FLAGS) $(BONUSOBJS) $(UTILSOBJS) $(LIBFTOBJS) $(FT_PRINTFOBJS) $(GNLOBJS) -o $(BONUSNAME)
