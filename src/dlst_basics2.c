@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:47:45 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 13:51:07 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 17:19:20 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	dlst_clear(t_dlst *stack)
 {
 	t_dlst	i;
 
+	if (stack->head == NULL)
+		return ;
 	if (stack->head == stack->tail)
 	{
 		free (stack->head);

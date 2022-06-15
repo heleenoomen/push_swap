@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 18:07:41 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/15 16:37:52 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 17:23:03 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,22 @@ void	checker(t_dlst *a, t_dlst *b, char *line)
 		ft_r_sim(a, b);
 	else if (!ft_strncmp(line, "rrr\n", 5))
 		ft_rr_sim(a, b);
+	else if (!ft_strncmp(line, "ss\n", 4))
+		ft_ss(a, b);
+	else if (!ft_strncmp(line, "pa\n", 4))
+		ft_p(b, a);
+	else if (!ft_strncmp(line, "pb\n", 4))
+		ft_p(a, b);
 	else
 		exit_checker(a, b, line);
+}
+
+void	check_dupl_b(t_dlst *a)
+{
+	t_dlst	sor;
+
+	check_dupl(a, &sor);
+	dlst_clear(&sor);
 }
 
 int	main(int argc, char **argv)
@@ -52,6 +66,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	make_stack_a(argc, argv, &a);
+	check_dupl_b(&a);
 	dlst_init(&b, 'b');
 	a.name = 'c';
 	b.name = 'c';
