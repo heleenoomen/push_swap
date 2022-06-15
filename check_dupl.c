@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:47:32 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 13:50:03 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 13:28:32 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,25 +63,25 @@ void	make_sor(t_dlst *a, t_dlst *sor)
 	quickso_dlst(sor, sor->head, sor->tail);
 }
 
-void	check_dupl(t_dlst *a)
+void	check_dupl(t_dlst *a, t_dlst *sor)
 {
 	t_dnode	*i;
-	t_dlst	sor;
 
-	make_sor(a, &sor);
-	i = sor.head;
+	make_sor(a, sor);
+	i = sor->head;
 	while (1)
 	{
 		if (i->nb == i->next->nb)
 		{
-			dlst_clear(&sor);
+			dlst_clear(sor);
 			dlst_clear(a);
 			ft_printf("Error\n");
 			exit(0);
 		}
 		i = i->next;
-		if (i == sor.head)
+		if (i == sor->head)
 			break ;
 	}
-	dlst_clear(&sor);
+	if (a->size < 250)
+		dlst_clear(sor);
 }

@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:33 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 19:11:49 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 13:12:01 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	ft_r_sim(t_dlst *a, t_dlst *b);
 void	ft_rr_sim(t_dlst *a, t_dlst *b);
 
 //sort.c
-void	sort(t_dlst *a);
+void	sort(t_dlst *a, t_dlst *sor);
 bool	is_sorted(t_dlst *a);
 
 //sort_utils.c
@@ -127,8 +127,11 @@ void	print_stacks(t_dlst *a, t_dlst *b);
 void	print_p(t_p *p, char *name);
 
 //check_dupl.c
-void	check_dupl(t_dlst *a);
+void	check_dupl(t_dlst *a, t_dlst *sor);
 void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail);
+
+//push_portion.c
+void	push_half(t_dlst *a, t_dlst *b, t_dlst *sor);
 
 //bonus.c
 //int		main(int argc, char **argv);
