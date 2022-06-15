@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 18:07:41 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/15 17:49:26 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 17:55:30 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	exit_checker(t_dlst *a, t_dlst *b, char *line)
 	free(line);
 	dlst_clear(a);
 	dlst_clear(b);
-	ft_putchar_fd("Error\n", STDERR_FILENO);
+	ft_putstr_fd("Error\n", STDERR_FILENO);
 	exit(0);
 }
 
