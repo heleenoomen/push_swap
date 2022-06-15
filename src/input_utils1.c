@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:53:54 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/15 19:00:09 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 19:21:17 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ bool	isint(const char *arg)
 void	parse_argv(int *argc, char ***argv)
 {
 	*argv = ft_split_shift((*argv)[1], ' ');
-	if (*argv == NULL || (*argv)[0] == NULL)
+	if (*argv == NULL || (*argv)[1] == NULL)
 	{
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 		exit(0);
