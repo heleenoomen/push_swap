@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:53:54 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 17:53:26 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 15:10:05 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,9 @@ void	make_stack_a(int argc, char **argv, t_dlst *a)
 	make_dllst(argv, a);
 	if (is_single)
 		ft_free_argv_ps(argv);
+	if (argc == 2)
+	{
+		dlst_clear(a);
+		exit(0);
+	}
 }

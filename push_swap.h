@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:33 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/15 13:50:37 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 15:02:27 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,14 @@ void	quickso_dlst(t_dlst *stack, t_dnode *head, t_dnode *tail);
 
 //push_portion.c
 void	push_half(t_dlst *a, t_dlst *b, t_dlst *sor);
+
+//push_half_ss_utils
+void	ft_ss(t_dlst *a, t_dlst *b);
+void	get_key(t_dlst *a, t_dlst *sor, int *key);
+bool	bigger_first(t_dlst *a, int key);
+bool	fw_faster_bg(t_dlst *a, int key);
+bool	fw_faster_sm(t_dlst *a, int key);
+
 
 //bonus.c
 //int		main(int argc, char **argv);
