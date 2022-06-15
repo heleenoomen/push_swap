@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:47:32 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/15 17:54:36 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 18:11:51 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	swap_int(int *i, int *j)
 
 void	repeat(t_dlst *stack, t_dnode *i, t_dnode *head, t_dnode *tail)
 {
-	if (i->prev != head)
+	if (i != head)
 		quickso_dlst(stack, head, i->prev);
 	if (i != tail)
 		quickso_dlst(stack, i->next, tail);
