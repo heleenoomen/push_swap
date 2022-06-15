@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:33 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/15 13:12:01 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 13:50:37 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,14 @@ void	ft_rr(t_dlst *stack);
 void	ft_p(t_dlst *org, t_dlst *dest);
 void	ft_r_sim(t_dlst *a, t_dlst *b);
 void	ft_rr_sim(t_dlst *a, t_dlst *b);
+void	ft_ss(t_dlst *a, t_dlst *b);
 
 //sort.c
 void	sort(t_dlst *a, t_dlst *sor);
 bool	is_sorted(t_dlst *a);
 
 //sort_utils.c
-void	sort_three_b(t_dlst *a);
+void	sort_three_b(t_dlst *a, t_dlst *b);
 void	push_second_last(t_dlst *a, t_dlst *b);
 void	push_last(t_dlst *a, t_dlst *b);
 void	final_r(t_dlst *a);

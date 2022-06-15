@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:45 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/15 13:29:35 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 13:50:06 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	sort(t_dlst *a, t_dlst *sor)
 	push_half(a, &b, sor);
 	while (a->size > 3)
 		ft_p(a, &b);
-	sort_three_b(a);
+	sort_three_b(a, &b);
 	while (b.size > 2)
 		push_sort(&b, a);
 	push_second_last(a, &b);

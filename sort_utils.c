@@ -6,20 +6,35 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:38 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 19:53:24 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 13:49:36 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-void	sort_three_b(t_dlst *a)
+void	sort_three_b(t_dlst *a, t_dlst *b)
 {
 	if (a->head->next->nb < a->head->nb && a->head->nb < a->tail->nb)
-		ft_s(a);
+	{
+		if (b->head->nb < b->head->next->nb)
+			ft_ss(a, b);
+		else
+			ft_s(a);
+	}
 	else if (a->head->nb < a->tail->nb && a->tail->nb < a->head->next->nb)
-		ft_s(a);
+	{
+		if (b->head->nb < b->head->next->nb)
+			ft_ss(a, b);
+		else
+			ft_s(a);
+	}	
 	else if (a->tail->nb < a->head->next->nb && a->head->next->nb < a->head->nb)
-		ft_s(a);
+	{
+		if (b->head->nb < b->head->next->nb)
+			ft_ss(a, b);
+		else
+			ft_s(a);
+	}	
 }
 
 void	push_second_lastb(t_dlst *a, t_dlst *b)
