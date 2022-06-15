@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:47:32 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/15 13:28:32 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 17:52:31 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	check_dupl(t_dlst *a, t_dlst *sor)
 		{
 			dlst_clear(sor);
 			dlst_clear(a);
-			ft_printf("Error\n");
+			ft_putchar_fd("Error\n", STDERR_FILENO);
 			exit(0);
 		}
 		i = i->next;
