@@ -6,7 +6,7 @@
 #    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 15:22:54 by hoomen            #+#    #+#              #
-#    Updated: 2022/06/15 16:44:56 by hoomen           ###   ########.fr        #
+#    Updated: 2022/06/15 17:56:36 by hoomen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ script: $(SCRIPTOBJ) $(FT_PRINTFOBJS) $(GNLOBJS) $(LIBFTOBJS)
 	@$(CC) $(FLAGS) $(SCRIPTOBJ) $(FT_PRINTFOBJS) $(GNLOBJS) $(LIBFTOBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUSNAME)
 
 re: fclean all
 
