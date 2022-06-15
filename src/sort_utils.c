@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:38 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/15 13:49:36 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 16:39:34 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,10 @@ void	push_second_lastb(t_dlst *a, t_dlst *b)
 		ft_p(b, a);
 		if (!is_sorted(a))
 			ft_s(a);
-		//ft_p(b, a);
 	}
 	else if (a->head->nb < b->tail->nb && a->head->next->nb > b->tail->nb
-		&& b->head->nb < b->tail->nb && b->head->nb < a->head->nb &&
-			b->tail->nb > a->tail->nb)
+		&& b->head->nb < b->tail->nb && b->head->nb < a->head->nb
+		&& b->tail->nb > a->tail->nb)
 	{
 		ft_r(b);
 		ft_p(b, a);

@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 16:37:47 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/14 16:38:23 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 16:38:23 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	**ft_split_shift(char *s, char c)
 	i = 0;
 	while (i < (count + 1))
 	{
-		argv[i+1] = temp[i];
+		argv[i + 1] = temp[i];
 		i++;
 	}
 	free(temp);

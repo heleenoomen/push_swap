@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:45 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/15 13:50:06 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 16:39:12 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	sort_two(t_dlst *a)
 {
-		ft_s(a);
-		exit(0);
+	ft_s(a);
+	exit(0);
 }
 
 void	sort_three(t_dlst *a)

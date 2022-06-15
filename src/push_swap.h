@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:48:33 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/15 15:02:27 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/15 16:39:01 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # include<stdbool.h>
 # include<stdio.h>
 # include<stddef.h>
-# include"ft_printf/ft_printf.h"
-# include"libft/libft.h"
-# include"get_next_line/get_next_line.h"
+# include"../ft_printf/ft_printf.h"
+# include"../libft/libft.h"
+# include"../get_next_line/get_next_line.h"
 
 typedef struct s_dnode
 {
@@ -44,15 +44,12 @@ typedef struct s_p
 {
 	int		nb;
 	int		ops;
-	int		rev;  // 1 when rr is fastest, 0 when r is fastest, -1 when both are equally fast
-	int		r;  // number of rotations
+	int		rev;
+	int		r;
 	int		r_sim;
 }			t_p;
 
-# define MAX_INT	(unsigned long) 2147483647
-
-# define ps		print_stacks(a, b)
-# define ps2	print_stacks(a, &b)
+# define MAX_INT (unsigned int) 2147483647
 
 //input_utils1.c
 void	parse_argv(int *argc, char ***argv);
@@ -123,7 +120,7 @@ void	ins_dst(t_dlst *a, t_dlst *b, t_p *org, t_p *dst);
 
 //print_dlst.c
 void	print_sorted(t_dlst *stack_t);
-void	print_quickso_dlst(t_dnode *head, t_dnode *tail, t_dnode *i, t_dnode *j);
+void	print_quickso_dlst(t_dnode *hd, t_dnode *tl, t_dnode *i, t_dnode *j);
 void	print_stacks(t_dlst *a, t_dlst *b);
 void	print_p(t_p *p, char *name);
 
@@ -140,9 +137,5 @@ void	get_key(t_dlst *a, t_dlst *sor, int *key);
 bool	bigger_first(t_dlst *a, int key);
 bool	fw_faster_bg(t_dlst *a, int key);
 bool	fw_faster_sm(t_dlst *a, int key);
-
-
-//bonus.c
-//int		main(int argc, char **argv);
 
 #endif
